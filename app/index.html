@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/haib-badge.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="transpAIrency™ — Defensible AI">
+<meta property="og:description" content="Verified AI with cited sources, gap disclosure, and full audit trail. 5 providers. 17 domains. Every output defensible.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://transpairencyagent.netlify.app/app/">
+<meta property="og:image" content="https://transpairencyagent.netlify.app/haib-badge.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="transpAIrency™ — verified AI with cited sources, gap disclosure, confidence scoring, and OAT audit trail.">
+<title>transpAIrency™ v3.1 — DEFENSIBLE AI · Honest AiB™ Holdings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+:root{
+  --bg:#ffffff;
+  --navy:#1a2d4a;
+  --navy-light:#2a4060;
+  --navy-xlight:#3a5080;
+  --gold:#c9a227;
+  --gold-light:#d4b54a;
+  --gold-dim:rgba(201,162,39,0.15);
+  --text:#111111;
+  --text-sec:#555555;
+  --text-inv:#ffffff;
+  --gl:#f5f5f7;
+  --gb:#e4e4e8;
+  --green:#2e8b57;
+  --green-bg:#e8f5e9;
+  --amber:#c47a00;
+  --amber-bg:#fff8e1;
+  --orange:#d4580a;
+  --orange-bg:#fff3e0;
+  --red:#c0392b;
+  --red-bg:#fce4ec;
+  --font:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  --radius:8px;
+  --shadow:0 2px 12px rgba(0,0,0,0.08);
+  --shadow-lg:0 8px 32px rgba(0,0,0,0.12);
+  --oat-width:440px;
+  --header-h:54px;
+  --toolbar-h:44px;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex;flex-direction:column;height:100vh;}
+
+/* ══ CONFIG MODAL ══ */
+#cm-overlay{position:fixed;inset:0;background:rgba(10,18,40,0.85);backdrop-filter:blur(6px);z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;}
+.cm{background:#fff;border-radius:14px;width:580px;max-width:calc(100vw - 32px);max-height:calc(100vh - 32px);overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+.cm-bar{background:var(--navy);padding:20px 28px;display:flex;align-items:center;gap:12px;border-radius:14px 14px 0 0;}
+.cm-logo{font-size:20px;font-weight:800;color:#fff;letter-spacing:-0.5px;}
+.cm-logo span{color:var(--gold);}
+.cm-sub{font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px;}
+.cm-body{padding:0;}
+.cm-section{border:1.5px solid var(--gb);border-radius:8px;margin:16px 20px 0;overflow:hidden;}
+.cm-section:last-of-type{margin-bottom:16px;}
+.cm-section-head{background:var(--navy);color:#fff;font-size:11px;font-weight:700;letter-spacing:.4px;padding:8px 16px;}
+.cm-section-body{padding:14px 16px;}
+.cm-label{font-size:11px;color:var(--text-sec);margin-bottom:8px;}
+.cm-note{font-size:10px;color:var(--text-sec);font-style:italic;margin-top:8px;line-height:1.5;}
+.cm-checks{display:flex;flex-direction:column;gap:10px;}
+.cm-ck{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text);cursor:pointer;line-height:1.5;}
+.cm-ck input{margin-top:2px;flex-shrink:0;accent-color:var(--navy);}
+.llm-btns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+.llm-btn{display:flex;flex-direction:column;align-items:center;padding:8px 14px;border:1.5px solid var(--gb);border-radius:6px;text-decoration:none;transition:border-color .15s;cursor:pointer;}
+.llm-btn:hover{border-color:var(--gold);}
+.llm-name{font-size:12px;font-weight:700;color:var(--navy);}
+.llm-brand{font-size:9px;color:var(--text-sec);}
+.llm-arrow{font-size:9px;color:var(--gold);}
+.cm-key-row{display:flex;gap:8px;align-items:center;}
+.cm-input{flex:1;padding:8px 12px;border:1.5px solid var(--gb);border-radius:6px;font-family:var(--font);font-size:12px;transition:border-color .2s;}
+.cm-input:focus{outline:none;border-color:var(--gold);}
+.cm-eye{background:none;border:1.5px solid var(--gb);border-radius:6px;padding:8px 10px;cursor:pointer;font-size:13px;transition:border-color .15s;}
+.cm-eye:hover{border-color:var(--navy);}
+.cm-detected{font-size:10px;color:var(--green);font-weight:600;margin-top:6px;min-height:16px;}
+.session-toggle{display:flex;flex-direction:column;gap:8px;}
+.session-opt{display:flex;align-items:flex-start;gap:8px;padding:10px 12px;border:1.5px solid var(--gb);border-radius:6px;cursor:pointer;transition:border-color .15s;}
+.session-opt.selected{border-color:var(--navy);background:rgba(26,45,74,0.04);}
+.session-opt input{margin-top:2px;flex-shrink:0;accent-color:var(--navy);}
+.session-opt-title{font-size:12px;font-weight:700;color:var(--navy);}
+.session-opt-desc{font-size:10px;color:var(--text-sec);margin-top:3px;line-height:1.5;}
+.cm-optout{margin-top:8px;font-size:11px;color:var(--text-sec);}
+.cm-contact{font-size:12px;color:var(--text-sec);}
+.cm-contact a{color:var(--navy);text-decoration:underline;}
+.cm-launch-area{padding:16px 20px 20px;}
+.cm-btn{width:100%;padding:14px;background:var(--navy);color:#fff;border:none;border-radius:var(--radius);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.3px;transition:background .2s;}
+.cm-btn:hover{background:var(--navy-light);}
+.cm-btn:disabled{background:var(--gb);color:var(--text-sec);cursor:not-allowed;}
+
+/* ══ HEADER ══ */
+header{height:var(--header-h);background:var(--navy);display:flex;align-items:center;padding:0 16px;gap:12px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+.h-left{display:flex;align-items:center;gap:12px;flex:1;}
+.h-brand{font-size:17px;font-weight:800;color:#fff;letter-spacing:-0.5px;white-space:nowrap;}
+.h-brand span{color:var(--gold);}
+.h-tagline{font-size:10px;color:rgba(255,255,255,0.5);border-left:1px solid rgba(255,255,255,0.15);padding-left:12px;white-space:nowrap;}
+.h-right{display:flex;align-items:center;gap:8px;}
+.triad-pill{font-size:9px;font-weight:700;padding:3px 8px;border-radius:20px;border:1px solid rgba(201,162,39,0.4);color:var(--gold);letter-spacing:.3px;}
+.triad-pill.active{background:rgba(201,162,39,0.12);border-color:var(--gold);animation:pulse-gold 3s ease-in-out infinite;}
+@keyframes pulse-gold{0%,100%{opacity:1}50%{opacity:.6}}
+.llm-pill{font-size:9px;font-weight:700;padding:3px 8px;border-radius:4px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:.3px;}
+.tkt-pill{font-size:9px;color:rgba(255,255,255,0.4);font-family:'SF Mono','Fira Code',monospace;}
+
+/* ══ TOOLBAR ══ */
+.toolbar{height:var(--toolbar-h);background:#fff;border-bottom:1px solid var(--gb);display:flex;align-items:center;padding:0 12px;gap:6px;flex-shrink:0;}
+.tb-btn{padding:5px 11px;border-radius:5px;font-family:var(--font);font-size:11px;font-weight:600;cursor:pointer;border:1.5px solid transparent;transition:all .15s;white-space:nowrap;}
+.tb-btn.outline{background:transparent;color:var(--navy);border-color:var(--gb);}
+.tb-btn.outline:hover{border-color:var(--navy);background:var(--gl);}
+.tb-sep{width:1px;height:20px;background:var(--gb);margin:0 4px;}
+.reset-timer{font-size:10px;color:var(--text-sec);font-family:'SF Mono','Fira Code',monospace;margin-left:auto;}
+.reset-timer.warning{color:var(--orange);font-weight:700;}
+.domain-sel{font-size:10px;font-weight:600;padding:4px 8px;border:1.5px solid var(--gb);border-radius:5px;background:#fff;color:var(--navy);font-family:var(--font);cursor:pointer;transition:border-color .15s;}
+.domain-sel:hover{border-color:var(--navy);}
+.domain-sel:focus{outline:none;border-color:var(--gold);}
+
+/* ══ MAIN LAYOUT ══ */
+main{flex:1;display:flex;overflow:hidden;min-height:0;}
+.chat-col{flex:1;display:flex;flex-direction:column;border-right:1px solid var(--gb);min-width:0;}
+.col-header{padding:10px 16px;background:var(--gl);border-bottom:1px solid var(--gb);font-size:10px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.col-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.chat-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth;}
+.chat-msgs::-webkit-scrollbar{width:4px;}
+.chat-msgs::-webkit-scrollbar-track{background:transparent;}
+.chat-msgs::-webkit-scrollbar-thumb{background:var(--gb);border-radius:2px;}
+
+/* ── BUBBLES ── */
+.bwrap{display:flex;flex-direction:column;gap:2px;}
+.bubble{max-width:85%;padding:10px 14px;border-radius:12px;font-size:13px;line-height:1.6;word-break:break-word;white-space:pre-wrap;}
+.bubble.user{align-self:flex-end;background:var(--navy);color:#fff;border-bottom-right-radius:3px;}
+.bubble.bot{align-self:flex-start;background:var(--gl);color:var(--text);border-bottom-left-radius:3px;border:1px solid var(--gb);}
+.bubble.ack{align-self:flex-start;background:var(--amber-bg);color:var(--amber);border:1px solid rgba(196,122,0,0.2);font-size:12px;animation:fadeInOut 1.5s ease-in-out infinite;}
+@keyframes fadeInOut{0%,100%{opacity:1}50%{opacity:.5}}
+.bubble.system-notice{align-self:center;background:var(--gold-dim);color:var(--amber);border:1px solid rgba(201,162,39,0.3);font-size:11px;text-align:center;border-radius:20px;padding:5px 14px;}
+
+/* ── INPUT BAR ── */
+.input-bar{padding:12px 16px 8px;background:#fff;border-top:1px solid var(--gb);display:flex;gap:8px;align-items:flex-end;flex-shrink:0;flex-direction:column;}
+.input-row{display:flex;gap:8px;align-items:flex-end;width:100%;}
+.input-subbar{width:100%;display:flex;align-items:center;justify-content:flex-end;gap:12px;padding-top:4px;}
+.input-subbar a,.input-subbar span{font-size:10px;color:var(--text-sec);text-decoration:none;transition:color .15s;}
+.input-subbar a:hover{color:var(--gold);}
+.input-bar textarea{flex:1;padding:10px 13px;border:1.5px solid var(--gb);border-radius:var(--radius);font-family:var(--font);font-size:13px;resize:none;line-height:1.5;min-height:42px;max-height:120px;transition:border-color .2s;overflow-y:auto;}
+.input-bar textarea:focus{outline:none;border-color:var(--gold);}
+.input-bar textarea::placeholder{color:var(--text-sec);}
+.send-btn{width:42px;height:42px;flex-shrink:0;background:var(--navy);color:#fff;border:none;border-radius:var(--radius);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:background .15s;}
+.send-btn:hover{background:var(--navy-light);}
+.send-btn:disabled{background:var(--gb);cursor:not-allowed;}
+
+/* ── UPLOAD BUTTON ── */
+.upload-btn{width:42px;height:42px;flex-shrink:0;background:#fff;color:var(--navy);border:1.5px solid var(--gb);border-radius:var(--radius);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all .15s;}
+.upload-btn:hover{border-color:var(--gold);background:var(--gold-dim);}
+.upload-btn.has-doc{border-color:var(--green);background:var(--green-bg);color:var(--green);}
+#doc-file-input{display:none;}
+
+/* ── DOC PILL ── */
+.doc-pill{display:flex;align-items:center;gap:6px;padding:5px 10px;background:var(--green-bg);border:1px solid rgba(46,139,87,0.3);border-radius:20px;font-size:11px;color:var(--green);font-weight:600;width:100%;flex-shrink:0;}
+.doc-pill-icon{font-size:13px;flex-shrink:0;}
+.doc-pill-name{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:260px;}
+.doc-pill-size{font-size:9px;color:var(--text-sec);font-weight:400;flex-shrink:0;}
+.doc-pill-clear{background:none;border:none;cursor:pointer;color:var(--text-sec);font-size:14px;padding:0 2px;line-height:1;flex-shrink:0;transition:color .15s;}
+.doc-pill-clear:hover{color:var(--red);}
+.doc-processing{font-size:10px;color:var(--amber);font-style:italic;}
+
+/* ══ OAT COLUMN ══ */
+.oat-col{width:var(--oat-width);flex-shrink:0;display:flex;flex-direction:column;background:var(--gl);}
+.oat-entries{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px;}
+.oat-entries::-webkit-scrollbar{width:4px;}
+.oat-entries::-webkit-scrollbar-track{background:transparent;}
+.oat-entries::-webkit-scrollbar-thumb{background:var(--gb);border-radius:2px;}
+.oat-entry{background:#fff;border-radius:var(--radius);border-left:4px solid var(--navy);padding:12px;box-shadow:var(--shadow);font-size:11px;line-height:1.5;}
+.oat-entry.verified{border-left-color:var(--green);}
+.oat-entry.emergency{border-left-color:var(--red);}
+.oat-entry.heartbeat{border-left-color:var(--gold);background:rgba(201,162,39,0.04);font-size:10px;opacity:0.85;padding:8px 12px;}
+.oat-section-title{font-size:9px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin:8px 0 4px;}
+.oat-section-title:first-child{margin-top:0;}
+.oat-hash{font-family:'SF Mono','Fira Code',monospace;font-size:11px;font-weight:700;color:var(--navy);letter-spacing:.5px;padding:6px 10px;background:var(--gl);border:1px solid var(--gb);border-radius:4px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;}
+.oat-hash-label{font-size:8px;font-weight:400;color:var(--text-sec);}
+
+/* ── CONF BARS — v3.1: Safety not Quality ── */
+.conf-bar-wrap{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+.conf-bar-label{width:55px;color:var(--text-sec);font-size:9px;}
+.conf-bar-track{flex:1;height:4px;background:var(--gb);border-radius:2px;overflow:hidden;}
+.conf-bar-fill{height:100%;border-radius:2px;transition:width .3s ease;}
+.conf-bar-fill.high{background:var(--green);}
+.conf-bar-fill.mid{background:var(--amber);}
+.conf-bar-fill.low{background:var(--red);}
+.conf-bar-val{width:28px;text-align:right;font-weight:700;font-size:9px;font-family:'SF Mono','Fira Code',monospace;}
+.conf-bar-val.high{color:var(--green);}
+.conf-bar-val.mid{color:var(--amber);}
+.conf-bar-val.low{color:var(--red);}
+
+/* ── PYcheck RECOMMENDATIONS — v3.1 ── */
+.pycheck-summary{font-size:10px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.pycheck-rec{font-size:9px;color:var(--text-sec);padding:3px 0 3px 10px;border-left:2px solid var(--amber);margin-bottom:3px;line-height:1.4;}
+.pycheck-clear{font-size:9px;color:var(--green);font-weight:600;}
+
+/* ── VERDICT STAMP ── */
+.verdict-stamp{font-weight:800;letter-spacing:.8px;text-align:center;padding:7px 12px;border-radius:5px;font-size:10px;margin-top:10px;text-transform:uppercase;}
+.verdict-stamp.green{background:var(--green-bg);color:var(--green);border:1.5px solid #4caf50;}
+.verdict-stamp.amber{background:var(--amber-bg);color:var(--amber);border:1.5px solid #ffc107;}
+.verdict-stamp.red{background:var(--red-bg);color:var(--red);border:1.5px solid #ef9a9a;}
+
+/* ── SRC / GAPS ── */
+.src-item{font-size:8.5px;color:var(--text-sec);margin-bottom:3px;font-family:'SF Mono','Fira Code',monospace;word-break:break-all;}
+.src-item a{color:var(--gold);text-decoration:none;}
+.src-item a:hover{text-decoration:underline;}
+.gaps-list{counter-reset:gap-counter;margin-bottom:10px;}
+.gap-item{counter-increment:gap-counter;display:flex;align-items:flex-start;gap:6px;font-size:12px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.5;}
+.gap-item::before{content:counter(gap-counter)".";color:var(--orange);font-weight:900;font-size:12px;flex-shrink:0;min-width:20px;}
+
+/* ── SIM block ── */
+.sim-block{font-size:9px;color:var(--text-sec);background:var(--gl);border-left:3px solid var(--gold);padding:5px 8px;border-radius:3px;margin-bottom:6px;font-style:italic;line-height:1.5;}
+
+/* ── DOC BADGE ── */
+.doc-badge{font-size:8px;background:var(--green-bg);color:var(--green);border:1px solid rgba(46,139,87,0.3);padding:2px 7px;border-radius:10px;font-weight:700;margin-left:6px;}
+
+/* ── AUDIT WARN ── */
+.audit-warn{font-size:8px;color:var(--orange);font-weight:600;padding:3px 7px;background:var(--orange-bg);border-radius:3px;border:1px solid rgba(212,88,10,0.3);display:inline-block;margin-top:6px;}
+
+/* ── AIBGUARD™ BAR ── */
+.ag-bar{max-width:85%;align-self:flex-start;border-radius:6px;margin-top:4px;margin-bottom:2px;overflow:hidden;border-left:4px solid var(--navy);background:#fafafa;}
+.ag-head{display:flex;align-items:center;justify-content:space-between;padding:6px 10px;gap:8px;}
+.ag-head-left{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;}
+.ag-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;background:var(--navy);}
+.ag-label{color:var(--navy);}
+.ag-domains{color:var(--text-sec);font-weight:500;}
+.ag-body{display:block;padding:0 10px 10px;font-size:10px;color:var(--text-sec);line-height:1.6;border-top:1px solid var(--gb);}
+.ag-row{margin-bottom:5px;}
+.ag-row-label{font-weight:700;color:var(--navy);}
+.ag-disclaimer-bridge{border-left:3px solid var(--orange);margin:5px 0;background:var(--orange-bg);border-radius:4px;padding:6px 10px;}
+.ag-disclaimer-bridge .ag-row-label{color:var(--orange);}
+.ag-logic-only{border-left:3px solid var(--amber);padding-left:8px;margin:5px 0;font-style:italic;color:var(--amber);}
+
+/* ── TIER BADGES ── */
+.src-badge{font-size:8px;padding:1px 5px;border-radius:3px;font-weight:700;margin-left:4px;}
+.src-badge.logic{background:#e8f0fe;color:#1565c0;}
+.src-badge.verified{background:var(--green-bg);color:var(--green);}
+.src-badge.dead{background:var(--red-bg);color:var(--red);}
+.src-badge.unverified{background:var(--amber-bg);color:var(--amber);}
+
+/* ══ FOOTER ══ */
+footer{background:var(--navy);padding:7px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.footer-left{font-size:9px;color:rgba(255,255,255,0.35);}
+.footer-right{font-size:9px;color:rgba(255,255,255,0.5);font-family:'SF Mono','Fira Code',monospace;letter-spacing:.2px;}
+.footer-right span{color:var(--gold);font-weight:700;}
+
+/* ── VF WRAP ── */
+.vf-wrap{align-self:flex-start;max-width:92%;margin-top:-6px;padding:8px 12px;background:#f0f4f8;border:1px solid var(--gb);border-top:none;border-radius:0 0 8px 8px;font-size:10.5px;line-height:1.6;}
+
+/* ── TOAST ── */
+#copy-toast{position:fixed;bottom:60px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:8px 18px;border-radius:20px;font-size:12px;font-weight:600;opacity:0;transition:all .3s;pointer-events:none;z-index:999;}
+#copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ══ PASSWORD ROW ══ */
+.pw-row{display:flex;gap:8px;align-items:center;margin-bottom:6px;}
+.pw-row .cm-input{flex:1;letter-spacing:0.08em;}
+.pw-row .cm-input.pw-shake{border-color:#c0392b;animation:pw-shake .3s ease;}
+@keyframes pw-shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.pw-row .cm-input.pw-ok{border-color:#2e8b57;background:rgba(46,139,87,0.05);}
+.pw-unlock-btn{padding:8px 14px;background:var(--navy);color:#fff;border:none;border-radius:var(--radius);font-family:var(--font);font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .15s;}
+.pw-unlock-btn:hover{background:var(--navy-light);}
+.pw-status{font-size:11px;min-height:16px;font-weight:600;margin-top:4px;}
+.pw-status.ok{color:#2e8b57;}
+.pw-status.err{color:#c0392b;}
+
+/* ══ EMAIL MODAL ══ */
+#email-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.82);z-index:2000;display:none;align-items:center;justify-content:center;}
+#email-modal-overlay.active{display:flex;}
+#email-modal{background:#fff;border-radius:10px;padding:36px 40px;max-width:420px;width:90%;text-align:center;}
+.em-icon{font-size:28px;margin-bottom:12px;}
+.em-title{font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin-bottom:10px;}
+.em-body{font-size:13px;color:var(--text-sec);line-height:1.7;margin-bottom:22px;}
+.em-body strong{color:var(--text);}
+#em-input{width:100%;box-sizing:border-box;background:#fff;border:1.5px solid var(--gb);color:var(--text);font-size:13px;padding:10px 14px;border-radius:6px;margin-bottom:12px;outline:none;}
+#em-input:focus{border-color:var(--gold);}
+#em-submit{width:100%;background:var(--navy);color:#fff;font-family:var(--font);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:11px;border:none;border-radius:6px;cursor:pointer;margin-bottom:10px;}
+#em-submit:hover{background:var(--navy-light);}
+#em-skip{font-size:11px;color:var(--text-sec);cursor:pointer;text-decoration:underline;}
+#em-error{font-size:11px;color:var(--red);margin-bottom:8px;display:none;}
+.em-stripe-link{display:block;margin-top:14px;font-size:11px;color:var(--gold);text-decoration:none;border-top:1px solid var(--gb);padding-top:14px;}
+
+@media(max-width:768px){:root{--oat-width:100%;}main{flex-direction:column;}.oat-col{height:45vh;}.chat-col{border-right:none;border-bottom:1px solid var(--gb);}}
+</style>
+</head>
+<body>
+
+<!-- ══ CONFIG MODAL ══ -->
+<div id="cm-overlay">
+  <div class="cm">
+    <div class="cm-bar">
+      <div>
+        <div class="cm-logo">transp<span>AI</span>rency™</div>
+        <div class="cm-sub">DEFENSIBLE AI · Honest AiB™ Holdings, Inc. · v3.1 <span style="background:#f0ad4e;color:#000;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;letter-spacing:0.1em;">BETA</span></div>
+      </div>
+    </div>
+    <div class="cm-body">
+      <div class="cm-section">
+        <div class="cm-section-head">Before We Begin</div>
+        <div class="cm-section-body">
+          <div class="cm-checks">
+            <label class="cm-ck"><input type="checkbox" id="ck1"><span>I am <b>18 years or older</b> and accept the <a href="https://aibcheck.com/legal/terms" target="_blank" rel="noopener" style="color:var(--navy);text-decoration:underline;">Terms of Use</a>.</span></label>
+            <label class="cm-ck"><input type="checkbox" id="ck2"><span>I understand this is an <b>AI system, not a licensed professional</b>. I will independently verify outputs before relying on them.</span></label>
+            <label class="cm-ck"><input type="checkbox" id="ck3"><span>I understand transpAIrency™ produces <b>process-verified</b> outputs under AiB™CHECK protocol — sources cited, gaps disclosed, conclusions mine.</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="cm-section">
+        <div class="cm-section-head">Your API Key <span style="font-size:11px;color:rgba(255,255,255,0.6);font-weight:400;">(optional — 5 free exchanges/day without a key)</span></div>
+        <div class="cm-section-body">
+          <div class="cm-label">Don't have a key? Get one free — click your provider:</div>
+          <div class="llm-btns">
+            <a class="llm-btn" href="https://console.anthropic.com" target="_blank" rel="noopener"><span class="llm-name">Claude</span><span class="llm-brand">Anthropic</span><span class="llm-arrow">↗</span></a>
+            <a class="llm-btn" href="https://platform.openai.com/api-keys" target="_blank" rel="noopener"><span class="llm-name">GPT</span><span class="llm-brand">OpenAI</span><span class="llm-arrow">↗</span></a>
+            <a class="llm-btn" href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener"><span class="llm-name">Gemini</span><span class="llm-brand">Google</span><span class="llm-arrow">↗</span></a>
+            <a class="llm-btn" href="https://platform.deepseek.com/api_keys" target="_blank" rel="noopener"><span class="llm-name">DeepSeek</span><span class="llm-brand">DeepSeek</span><span class="llm-arrow">↗</span></a>
+            <a class="llm-btn" href="https://console.x.ai" target="_blank" rel="noopener"><span class="llm-name">Grok</span><span class="llm-brand">xAI</span><span class="llm-arrow">↗</span></a>
+          </div>
+          <div class="cm-key-row">
+            <input class="cm-input" id="cm-key" type="password" placeholder="Paste your API key here...">
+            <button class="cm-eye" id="cm-eye" title="Show/hide key">👁</button>
+          </div>
+          <div class="cm-detected" id="cm-detected"></div>
+          <div class="cm-note">Your key is sent securely through our verification pipeline to your chosen provider. It is never stored, logged, or retained by Honest AiB™ Holdings.</div>
+        </div>
+      </div>
+      <div class="cm-section">
+        <div class="cm-section-head">Session Data</div>
+        <div class="cm-section-body">
+          <div class="session-toggle">
+            <label class="session-opt selected" id="opt-save">
+              <input type="radio" name="session-mode" value="save" checked>
+              <div class="session-opt-text">
+                <div class="session-opt-title">✅ Yes — help improve transpAIrency™</div>
+                <div class="session-opt-desc">Your session helps us build better verified AI. Session transcripts are retained for quality improvement and audit trail verification. No API keys are stored. You may request data deletion at jon@aibcheck.com.</div>
+              </div>
+            </label>
+          </div>
+          <div class="cm-optout">
+            <label style="cursor:pointer;display:flex;align-items:center;gap:6px;">
+              <input type="radio" name="session-mode" value="private" id="opt-private-radio">
+              <span>No thanks, I'd rather not help.</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="cm-section">
+        <div class="cm-section-head">Contact & Feedback</div>
+        <div class="cm-section-body">
+          <div class="cm-contact">Beta feedback, bugs, suggestions → <a href="mailto:jon@aibcheck.com?subject=transpAIrency Beta Feedback">jon@aibcheck.com</a></div>
+        </div>
+      </div>
+      <div class="cm-section">
+        <div class="cm-section-head">Site Password <span style="font-size:11px;color:rgba(255,255,255,0.5);font-weight:400;">(optional — full access)</span></div>
+        <div class="cm-section-body">
+          <div class="cm-label">Have a site password?</div>
+          <div class="pw-row">
+            <input class="cm-input" id="pw-input" type="password" placeholder="Enter site password..." autocomplete="off" autocorrect="off" spellcheck="false">
+            <button class="pw-unlock-btn" id="pw-unlock-btn">Unlock →</button>
+          </div>
+          <div class="pw-status" id="pw-status"></div>
+          <div class="cm-note">Site password grants full access — bypasses daily exchange limits.</div>
+        </div>
+      </div>
+    </div>
+    <div class="cm-launch-area">
+      <button class="cm-btn" id="cm-launch" disabled>▶ BEGIN VERIFIED SESSION</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="h-left">
+    <div>
+      <div class="h-brand">transp<span>AI</span>rency™ <span style="background:#f0ad4e;color:#000;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;letter-spacing:0.1em;vertical-align:middle;">BETA</span></div>
+    </div>
+    <div class="h-tagline">DEFENSIBLE AI · Honest AiB™ Holdings · v3.1</div>
+  </div>
+  <div class="h-right">
+    <div class="triad-pill active" id="triad-status">● TRIAD ACTIVE <span title="dAItamatch: verify before stating · dAItaDD: source every addition · dAItaSUB: authorize every removal" style="cursor:help;border-bottom:1px dotted var(--gold);">?</span></div>
+    <div class="llm-pill" id="llm-display">CLAUDE</div>
+    <div class="tkt-pill" id="tkt-display">TKT-000000</div>
+  </div>
+</header>
+
+<!-- ══ TOOLBAR ══ -->
+<div class="toolbar">
+  <button class="tb-btn outline" id="btn-copy" title="Copy session info">📋 Copy</button>
+  <button class="tb-btn outline" id="btn-reset" title="Reset session">↺ Reset</button>
+  <div class="tb-sep"></div>
+  <button class="tb-btn outline" id="btn-dl-chat" title="Download chat transcript">⬇ Chat</button>
+  <button class="tb-btn outline" id="btn-dl-audit" title="Download OAT audit report">⬇ Audit</button>
+  <div class="tb-sep"></div>
+  <select class="domain-sel" id="domain-override" title="Override domain classification">
+    <option value="">🔍 Auto-Domain</option>
+    <option value="medical">🏥 Medical</option>
+    <option value="financial">💰 Financial</option>
+    <option value="legal">⚖️ Legal</option>
+    <option value="tax">📋 Tax/IRS</option>
+    <option value="crisis">🚨 Crisis</option>
+    <option value="technical">💻 Technical</option>
+    <option value="employment">💼 Employment</option>
+    <option value="home">🏠 Home/Property</option>
+    <option value="commerce">🛒 Commerce</option>
+    <option value="food">🍽️ Food/Dietary</option>
+    <option value="belief">🙏 Faith/Belief</option>
+    <option value="auto">🚗 Auto/Vehicle</option>
+    <option value="education">🎓 Education</option>
+    <option value="travel">🌍 Travel</option>
+    <option value="political">🗳️ Political</option>
+    <option value="general">❓ General</option>
+  </select>
+  <div class="reset-timer" id="reset-timer">Session remaining: 10:00</div>
+</div>
+
+<!-- ══ MAIN ══ -->
+<main>
+  <!-- VERIFIED CHAT -->
+  <div class="chat-col">
+    <div class="col-header">
+      <div class="col-dot"></div>
+      AiB™CHECK — Verified Chat
+    </div>
+    <div class="chat-msgs" id="chat-msgs"></div>
+
+    <!-- INPUT BAR -->
+    <div class="input-bar">
+      <!-- Doc pill — shown when doc loaded -->
+      <div id="doc-pill" style="display:none;" class="doc-pill">
+        <span class="doc-pill-icon" id="doc-pill-icon">📄</span>
+        <span class="doc-pill-name" id="doc-pill-name"></span>
+        <span class="doc-pill-size" id="doc-pill-size"></span>
+        <button class="doc-pill-clear" id="doc-pill-clear" title="Remove document">✕</button>
+      </div>
+      <div class="input-row">
+        <!-- Upload button — paperclip style, like Claude -->
+        <button class="upload-btn" id="upload-btn" title="Upload document (PDF, DOCX, TXT)">📎</button>
+        <input type="file" id="doc-file-input" accept=".pdf,.docx,.txt,.doc">
+        <textarea id="chat-input" placeholder="Ask anything — or upload a document and ask about it..." rows="1"></textarea>
+        <button class="send-btn" id="send-btn" title="Send">➤</button>
+      </div>
+      <div class="input-subbar">
+        <span id="feedback-session-id"></span>
+        <a id="feedback-link" href="mailto:jon@aibcheck.com?subject=transpAIrency Beta Feedback">💬 Feedback / Bug → jon@aibcheck.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- OAT RECEIPT -->
+  <div class="oat-col">
+    <div class="col-header" style="flex-direction:column;align-items:flex-start;gap:1px;padding:8px 16px;">
+      <img src="/haib-badge.png" alt="hAiB™" style="width:36px;height:36px;border-radius:50%;margin-right:8px;vertical-align:middle;">
+      <span style="font-size:15px;font-weight:800;color:var(--gold);letter-spacing:.02em;">OAT™</span>
+      <span style="font-size:8px;font-weight:700;color:var(--navy);letter-spacing:.4px;text-transform:uppercase;">Verified Output Certificate</span>
+      <span style="font-size:8px;font-weight:400;color:var(--text-sec);letter-spacing:.3px;text-transform:uppercase;">AiB™CHECK Audit Trail · v3.1</span>
+    </div>
+    <div class="oat-entries" id="oat-entries"></div>
+  </div>
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-left">© 2026 Honest AiB™ Holdings, Inc. · Patent Pending</div>
+  <div class="footer-right">⚠️ AIBGUARD v5.0β © / <span>YOU VERIFY</span> / — AiB™</div>
+</footer>
+
+<div id="copy-toast">Copied!</div>
+
+<!-- Email gate modal -->
+<div id="email-modal-overlay">
+  <div id="email-modal">
+    <div class="em-icon">🔒</div>
+    <div class="em-title">Free Limit Reached</div>
+    <div class="em-body" id="em-body-text">You've used your <strong>5 free exchanges</strong> today.<br>Enter your email for <strong>10 verified exchanges/day</strong> — free, no card.</div>
+    <div id="em-error"></div>
+    <input id="em-input" type="email" placeholder="your@email.com" autocomplete="email">
+    <button id="em-submit">Get 10 Exchanges/Day Free →</button>
+    <span id="em-skip">No thanks — buy 50 exchanges for $20 instead</span>
+    <a class="em-stripe-link" href="https://buy.stripe.com/6oUcN57cP0m74ME6aI5kk02" target="_blank">⚡ 50 exchanges · $20 · never expires · no daily reset →</a>
+  </div>
+</div>
+
+<!-- mammoth.js for DOCX text extraction -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+
+<script>
+// ════════════════════════════════════════════════════════════════
+// transpAIrency™ v3.1 — app/index.html Browser Logic
+// DISPLAY ONLY — ZERO IP — TV SCREEN RULE
+// All intelligence in verify-background.js (server-side)
+// ════════════════════════════════════════════════════════════════
+
+const DOMAIN_LABELS = {
+  medical:    { icon: '🏥', label: 'Medical/Health',  liability: 'HIGH'     },
+  financial:  { icon: '💰', label: 'Financial',        liability: 'HIGH'     },
+  legal:      { icon: '⚖️', label: 'Legal',            liability: 'HIGH'     },
+  tax:        { icon: '📋', label: 'Tax/IRS',          liability: 'HIGH'     },
+  crisis:     { icon: '🚨', label: 'Crisis/Safety',    liability: 'CRITICAL' },
+  technical:  { icon: '💻', label: 'Technical',        liability: 'LOW'      },
+  employment: { icon: '💼', label: 'Employment',       liability: 'MODERATE' },
+  home:       { icon: '🏠', label: 'Home/Property',    liability: 'MODERATE' },
+  commerce:   { icon: '🛒', label: 'Commerce',         liability: 'LOW'      },
+  food:       { icon: '🍽️', label: 'Food/Dietary',     liability: 'MODERATE' },
+  belief:     { icon: '🙏', label: 'Faith/Belief',     liability: 'LOW'      },
+  auto:       { icon: '🚗', label: 'Auto/Vehicle',     liability: 'MODERATE' },
+  education:  { icon: '🎓', label: 'Education',        liability: 'LOW'      },
+  travel:     { icon: '🌍', label: 'Travel',           liability: 'LOW'      },
+  political:  { icon: '🗳️', label: 'Political',        liability: 'LOW'      },
+  general:    { icon: '❓', label: 'General',           liability: 'MODERATE' },
+  BODY:       { icon: '🏥', label: 'Medical/Health',   liability: 'HIGH'     },
+  MONEY:      { icon: '💰', label: 'Financial',        liability: 'HIGH'     },
+  RULES:      { icon: '⚖️', label: 'Legal',            liability: 'HIGH'     },
+  SAFETY:     { icon: '🚨', label: 'Crisis/Safety',    liability: 'CRITICAL' },
+  TAX:        { icon: '📋', label: 'Tax/IRS',          liability: 'HIGH'     },
+  TRUTH:      { icon: '🔍', label: 'Fact/Truth',       liability: 'MODERATE' },
+  SYSTEMS:    { icon: '💻', label: 'Technical',        liability: 'LOW'      },
+  UNKNOWN:    { icon: '❓', label: 'General',           liability: 'MODERATE' }
+};
+
+// ── SESSION STATE ──
+const S = {
+  llmProvider: 'claude',
+  apiKey: '',
+  ticketId: 'TKT-' + Math.random().toString(36).substring(2, 8).toUpperCase(),
+  sessionId: 'SES-' + Date.now().toString(36).toUpperCase(),
+  history: [],
+  processing: false,
+  exchangeNum: 0,
+  domainOverride: null,
+  emailToken: localStorage.getItem('aib_email_token') || null,
+  heartbeatIntervalId: null,
+  heartbeatSecondsLeft: 600,
+  privateSession: false,
+  isAdmin: false,
+  clarifyContext: null,
+  oatLog: [],
+  // v3.1 — doc state
+  doc: null  // { name, type, content, size } or null
+};
+
+function escapeHTML(str) {
+  return String(str || '')
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+function scrollChat()  { const e=document.getElementById('chat-msgs');  if(e) e.scrollTop=e.scrollHeight; }
+function scrollOAT()   { const e=document.getElementById('oat-entries');if(e) e.scrollTop=e.scrollHeight; }
+function showToast(m)  { const t=document.getElementById('copy-toast'); t.textContent=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2000); }
+
+// ══════════════════════════════════════
+// DOC INGESTION — v3.1
+// Click upload button → hidden file input → process → pill
+// Exactly like Claude: one click, done.
+// ══════════════════════════════════════
+const uploadBtn   = document.getElementById('upload-btn');
+const fileInput   = document.getElementById('doc-file-input');
+const docPill     = document.getElementById('doc-pill');
+const docPillName = document.getElementById('doc-pill-name');
+const docPillSize = document.getElementById('doc-pill-size');
+const docPillIcon = document.getElementById('doc-pill-icon');
+const docPillClear= document.getElementById('doc-pill-clear');
+
+uploadBtn.addEventListener('click', () => fileInput.click());
+
+fileInput.addEventListener('change', async () => {
+  const file = fileInput.files[0];
+  if (!file) return;
+  await processDoc(file);
+  fileInput.value = ''; // allow re-upload of same file
+});
+
+async function processDoc(file) {
+  const name = file.name;
+  const ext  = name.split('.').pop().toLowerCase();
+  const size = formatFileSize(file.size);
+
+  // Show processing state immediately
+  docPill.style.display = 'flex';
+  docPillName.textContent = '⏳ Processing ' + name + '...';
+  docPillSize.textContent = size;
+  docPillIcon.textContent = extIcon(ext);
+  uploadBtn.classList.add('has-doc');
+
+  try {
+    let content, type;
+
+    if (ext === 'pdf') {
+      // PDF → base64 for Claude native document block
+      content = await fileToBase64(file);
+      type    = 'pdf';
+
+    } else if (ext === 'docx' || ext === 'doc') {
+      // DOCX → plain text via mammoth
+      const arrayBuf = await file.arrayBuffer();
+      const result   = await mammoth.extractRawText({ arrayBuffer: arrayBuf });
+      content = result.value;
+      type    = 'text';
+
+    } else if (ext === 'txt') {
+      // TXT → read as text
+      content = await fileToText(file);
+      type    = 'text';
+
+    } else {
+      clearDoc();
+      showToast('Unsupported format. Use PDF, DOCX, or TXT.');
+      return;
+    }
+
+    S.doc = { name, type, content, size };
+    docPillName.textContent = name;
+    docPillSize.textContent = size;
+    document.getElementById('chat-input').placeholder = `Document loaded: "${name}" — ask anything about it...`;
+
+    // Notify chat
+    addBubble('system-notice', `📎 Document loaded: "${name}" (${size}) — ready for analysis`);
+    scrollChat();
+
+  } catch (err) {
+    clearDoc();
+    showToast('Error reading document: ' + err.message);
+  }
+}
+
+function clearDoc() {
+  S.doc = null;
+  docPill.style.display  = 'none';
+  fileInput.value        = '';
+  uploadBtn.classList.remove('has-doc');
+  document.getElementById('chat-input').placeholder = 'Ask anything — or upload a document and ask about it...';
+}
+
+docPillClear.addEventListener('click', () => {
+  clearDoc();
+  showToast('Document removed');
+});
+
+function fileToBase64(file) {
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload  = () => res(r.result.split(',')[1]); // strip data:...;base64,
+    r.onerror = () => rej(new Error('Read failed'));
+    r.readAsDataURL(file);
+  });
+}
+function fileToText(file) {
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload  = () => res(r.result);
+    r.onerror = () => rej(new Error('Read failed'));
+    r.readAsText(file, 'utf-8');
+  });
+}
+function formatFileSize(bytes) {
+  if (bytes < 1024)    return bytes + ' B';
+  if (bytes < 1048576) return (bytes/1024).toFixed(1) + ' KB';
+  return (bytes/1048576).toFixed(1) + ' MB';
+}
+function extIcon(ext) {
+  return ext==='pdf' ? '📕' : ext==='docx'||ext==='doc' ? '📘' : '📄';
+}
+
+// ══════════════════════════════════════
+// CONFIG MODAL — from 2.10 locked
+// ══════════════════════════════════════
+(function() {
+  const checks = ['ck1','ck2','ck3'];
+  const launchBtn = document.getElementById('cm-launch');
+  const keyInput  = document.getElementById('cm-key');
+  const eyeBtn    = document.getElementById('cm-eye');
+  const detected  = document.getElementById('cm-detected');
+
+  const PROVIDER_PREFIXES = {
+    'sk-ant-': 'claude', 'sk-': 'openai', 'AIza': 'gemini',
+    'xai-': 'grok', 'sk-or-': 'openai'
+  };
+  function detectProvider(k) {
+    for (const [pfx, prov] of Object.entries(PROVIDER_PREFIXES)) {
+      if (k.startsWith(pfx)) return prov;
+    }
+    if (k.length > 10 && !k.startsWith('sk-ant') && !k.startsWith('sk-') && !k.startsWith('AIza') && !k.startsWith('xai-')) return 'deepseek';
+    return null;
+  }
+  const provNames = { claude:'Claude / Anthropic', openai:'GPT / OpenAI', gemini:'Gemini / Google', grok:'Grok / xAI', deepseek:'DeepSeek' };
+
+  eyeBtn.addEventListener('click', () => {
+    keyInput.type = keyInput.type === 'password' ? 'text' : 'password';
+  });
+  keyInput.addEventListener('input', () => {
+    const k = keyInput.value.trim();
+    const p = detectProvider(k);
+    if (k.length > 8 && p) {
+      detected.textContent = '✅ Detected: ' + (provNames[p] || p);
+      S.llmProvider = p;
+    } else {
+      detected.textContent = '';
+      S.llmProvider = 'claude';
+    }
+    checkReady();
+  });
+
+  const privateRadio = document.getElementById('opt-private-radio');
+  if (privateRadio) privateRadio.addEventListener('change', checkReady);
+
+  const pwInput     = document.getElementById('pw-input');
+  const pwUnlockBtn = document.getElementById('pw-unlock-btn');
+  const pwStatus    = document.getElementById('pw-status');
+  pwUnlockBtn.addEventListener('click', () => {
+    const pw = pwInput.value.trim();
+    if (pw === 'JONTEST') {
+      S.isAdmin = true;
+      pwInput.classList.add('pw-ok');
+      pwStatus.className = 'pw-status ok';
+      pwStatus.textContent = '✅ Full access granted';
+      const sub = document.querySelector('.cm-sub');
+      if (sub) sub.innerHTML = sub.innerHTML + ' <span style="background:rgba(46,139,87,0.15);border:1px solid rgba(46,139,87,0.4);color:#2e8b57;font-size:9px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-left:8px;">✦ FULL ACCESS</span>';
+    } else {
+      pwInput.classList.add('pw-shake');
+      pwStatus.className = 'pw-status err';
+      pwStatus.textContent = '✕ Incorrect password';
+      setTimeout(() => pwInput.classList.remove('pw-shake'), 400);
+    }
+  });
+
+  function checkReady() {
+    const allChecked = checks.every(id => document.getElementById(id).checked);
+    launchBtn.disabled = !allChecked;
+  }
+  checks.forEach(id => document.getElementById(id).addEventListener('change', checkReady));
+
+  launchBtn.addEventListener('click', () => {
+    S.apiKey       = keyInput.value.trim();
+    S.privateSession = document.getElementById('opt-private-radio')?.checked || false;
+    document.getElementById('llm-display').textContent = provNames[S.llmProvider] || S.llmProvider.toUpperCase();
+    document.getElementById('tkt-display').textContent = S.isAdmin ? '✦ FULL ACCESS · ' + S.ticketId : S.ticketId;
+    document.getElementById('cm-overlay').style.display = 'none';
+    const fbLink = document.getElementById('feedback-link');
+    const fbSess = document.getElementById('feedback-session-id');
+    if (fbSess) fbSess.textContent = S.ticketId + ' · ';
+    startHeartbeat();
+    fireGreeting();
+    const urlParams = new URLSearchParams(window.location.search);
+    const landingQuery = urlParams.get('q');
+    if (landingQuery) {
+      setTimeout(() => {
+        const inp = document.getElementById('chat-input');
+        if (inp) { inp.value = decodeURIComponent(landingQuery); document.getElementById('send-btn').click(); }
+      }, 600);
+    }
+  });
+})();
+
+// ── GREETING ──
+function fireGreeting() {
+  addBubble('bot', `transpAIrency™ v3.1 ready.\n\nAsk anything — every response is AiB™CHECK verified.\n\nNew in v3.1: upload a document (PDF, DOCX, TXT) with the 📎 button — then ask anything about it.\n\n⚠️ AIBGUARD v5.0β © / YOU VERIFY / — AiB™`);
+  addOATEntry(`SESSION INITIALIZED\n${S.ticketId} · ${S.sessionId}\nProvider: ${S.llmProvider.toUpperCase()}\nDoc ingestion: ACTIVE (PDF/DOCX/TXT)\n⚠️ AIBGUARD v5.0β © / YOU VERIFY /`, 'heartbeat');
+}
+
+// ── ADD CHAT BUBBLE ──
+function addBubble(type, text) {
+  const msgs = document.getElementById('chat-msgs');
+  const wrap = document.createElement('div');
+  wrap.className = 'bwrap';
+  if (type === 'user' && S.exchangeNum > 0) {
+    const lbl = document.createElement('div');
+    lbl.style.cssText = 'font-size:9px;color:var(--text-sec);font-weight:700;font-family:"SF Mono","Fira Code",monospace;padding-left:4px;margin-bottom:2px;align-self:flex-end;';
+    lbl.textContent = `Q${S.exchangeNum}`;
+    wrap.appendChild(lbl);
+  }
+  const b = document.createElement('div');
+  b.className = `bubble ${type}`;
+  b.textContent = text;
+  wrap.appendChild(b);
+  wrap._bubble = b;
+  msgs.appendChild(wrap);
+  scrollChat();
+  return wrap;
+}
+
+function removeEl(el) { if (el && el.parentNode) el.parentNode.removeChild(el); }
+
+function addOATEntry(text, type) {
+  const entries = document.getElementById('oat-entries');
+  const d = document.createElement('div');
+  d.className = `oat-entry ${type || ''}`;
+  d.style.whiteSpace = 'pre-wrap';
+  d.style.fontSize = '10px';
+  d.style.color = 'var(--text-sec)';
+  d.textContent = text;
+  entries.appendChild(d);
+  scrollOAT();
+  S.oatLog.push({ type, text, time: new Date().toISOString() });
+}
+
+// ══════════════════════════════════════
+// ADD OAT RECEIPT — v3.1
+// PYcheck = 3-area recommendations (not 5 gates)
+// CONF: Analysis | Output | Safety (not Quality)
+// No NON-DEFENSIBLE language — recommendations only
+// ══════════════════════════════════════
+function addOATReceipt(oat, sheetsLogged, oatHash) {
+  const entries = document.getElementById('oat-entries');
+  const dl = DOMAIN_LABELS[oat.vgResult?.domain] || DOMAIN_LABELS.general;
+
+  // Doc badge if doc was involved
+  const docBadge = oat.docInfo ? `<span class="doc-badge">📎 ${escapeHTML(oat.docInfo.name)}</span>` : '';
+
+  // CONF bars — v3.1: Analysis / Output / Safety
+  const barsHTML = [
+    ['Analysis', oat.conf?.analysis],
+    ['Output',   oat.conf?.output],
+    ['Safety',   oat.conf?.quality]   // backend sends as quality — label as Safety per spec
+  ].map(([label, val]) => {
+    if (val === null || val === undefined) return '';
+    const cls = val >= 85 ? 'high' : val >= 70 ? 'mid' : 'low';
+    return `<div class="conf-bar-wrap">
+      <span class="conf-bar-label">${label}</span>
+      <div class="conf-bar-track"><div class="conf-bar-fill ${cls}" style="width:${Math.min(val,100)}%"></div></div>
+      <span class="conf-bar-val ${cls}">${val}%</span>
+    </div>`;
+  }).join('');
+
+  // Sources — tiered display
+  const TIER_BADGE = {
+    LOGIC:      '<span class="src-badge logic">[0] LOGIC</span>',
+    VERIFIED:   '<span class="src-badge verified">VERIFIED</span>',
+    DEAD:       '<span class="src-badge dead">DEAD ⚠</span>',
+    UNVERIFIED: '<span class="src-badge unverified">UNVERIFIED</span>'
+  };
+  const srcHTML = (oat.sources && oat.sources.length > 0) ? `
+    <div class="oat-section-title">Sources</div>
+    <div style="margin-bottom:10px;">${oat.sources.map(s => {
+      const tier  = s.tier || (s.id === 0 ? 'LOGIC' : s.url ? 'UNVERIFIED' : 'LOGIC');
+      const badge = TIER_BADGE[tier] || '';
+      const link  = s.url && tier !== 'DEAD'
+        ? `<a href="${escapeHTML(s.url)}" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;word-break:break-all;">${escapeHTML(s.url)}</a>`
+        : tier === 'DEAD'
+          ? `<span style="color:var(--red);text-decoration:line-through;word-break:break-all;">${escapeHTML(s.url||'')}</span>`
+          : `<span style="color:var(--text-sec);">Irrefutable logic — no external source</span>`;
+      return `<div class="src-item"><span style="font-weight:700;color:var(--navy);">[${s.id}]</span>${badge} ${escapeHTML(s.text||'')} ${link}</div>`;
+    }).join('')}</div>` : '';
+
+  // Gaps — v3.1: 5 labeled gaps
+  const gapsHTML = (oat.gaps && oat.gaps.length > 0) ? `
+    <div class="oat-section-title">Gaps Disclosed</div>
+    <div class="gaps-list">${oat.gaps.map(g => `<div class="gap-item">${escapeHTML(g)}</div>`).join('')}</div>` : '';
+
+  // SIM — v3.1 new field
+  const simHTML = oat.sim ? `
+    <div class="oat-section-title">SIM — Real-World Parallel</div>
+    <div class="sim-block">${escapeHTML(oat.sim)}</div>` : '';
+
+  // PYcheck — v3.1: 3-area RECOMMENDATIONS only
+  const pycheck = oat.pycheck || {};
+  const recs    = pycheck.recommendations || [];
+  const pycheckHTML = `
+    <div class="oat-section-title">PYcheck™ — 3 Areas</div>
+    <div class="pycheck-summary">${escapeHTML(pycheck.summary || 'Reviewed.')}</div>
+    ${recs.length === 0
+      ? '<div class="pycheck-clear">✅ No recommendations</div>'
+      : recs.map(r => `<div class="pycheck-rec">${escapeHTML(r)}</div>`).join('')
+    }`;
+
+  // Logic-only advisory
+  const logicOnlyHTML = oat.isLogicOnly ? `
+    <div style="border-left:3px solid var(--amber);padding-left:6px;margin-bottom:8px;font-style:italic;color:var(--amber);font-size:9px;">
+      ⚠️ [0]-ONLY — AI logic, no external source. Verify independently.
+    </div>` : '';
+
+  // Verdict — v3.1: recommendation language, not NON-DEFENSIBLE
+  const verdictText = pycheck.allClear
+    ? '✅ REVIEWED — NO RECOMMENDATIONS'
+    : `⚠️ REVIEWED — ${recs.length} RECOMMENDATION${recs.length!==1?'S':''}`;
+  const verdictCls = pycheck.allClear ? 'green' : 'amber';
+
+  const auditWarnHTML = sheetsLogged === false
+    ? `<div class="audit-warn">⚠️ Audit log UNCONFIRMED — contact support</div>` : '';
+
+  const d = document.createElement('div');
+  d.className = 'oat-entry verified';
+  d.innerHTML = `
+    <div style="font-size:9px;color:var(--text-sec);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;">
+      <span>${dl.icon} ${dl.label}${docBadge} · <span style="font-family:'SF Mono','Fira Code',monospace;font-weight:700;color:var(--navy);">${escapeHTML(oat.exchangeId||'EX-0000')}</span></span>
+      <span>${new Date(oat.timestamp).toLocaleTimeString()}</span>
+    </div>
+    ${logicOnlyHTML}
+    ${srcHTML}
+    ${gapsHTML}
+    ${simHTML}
+    ${pycheckHTML}
+    <div class="oat-section-title" style="margin-top:8px;">Confidence</div>
+    ${barsHTML}
+    <div class="verdict-stamp ${verdictCls}" style="margin-top:10px;">${escapeHTML(verdictText)}</div>
+    ${auditWarnHTML}
+    <div class="oat-hash" style="margin-top:8px;">
+      <span>${escapeHTML(oatHash||'OAT#——')}</span>
+      <span class="oat-hash-label">${sheetsLogged?'● LOGGED':'○ PENDING'}</span>
+    </div>`;
+  entries.appendChild(d);
+  scrollOAT();
+  S.oatLog.push({ type:'receipt', oat, oatHash, time: new Date().toISOString() });
+}
+
+// ══════════════════════════════════════
+// AIBGUARD™ BAR — v3.1 — ALWAYS OPEN
+// ══════════════════════════════════════
+function addAIBGUARD(liability, domain, oat) {
+  const domains = oat?.vgResult?.domain || domain || 'general';
+  const msgs = document.getElementById('chat-msgs');
+  const wrap = document.createElement('div');
+  wrap.className = 'bwrap';
+  const bar = document.createElement('div');
+  bar.className = 'ag-bar';
+
+  const logicOnlyRow = (oat && oat.isLogicOnly) ? `
+    <div class="ag-logic-only ag-row">
+      <span class="ag-row-label">AI REASONING ONLY: </span>This response relies on AI logic with no external source. Verify independently before acting.
+    </div>` : '';
+
+  const bridgeRows = (oat && oat.disclaimerBridge && oat.disclaimerBridge.length > 0)
+    ? oat.disclaimerBridge.map(b => `
+      <div class="ag-disclaimer-bridge">
+        <div><span class="ag-row-label">⚠️ ${escapeHTML(b.label)}: </span>${escapeHTML(b.text)}</div>
+      </div>`).join('')
+    : '';
+
+  bar.innerHTML = `
+    <div class="ag-head">
+      <div class="ag-head-left">
+        <div class="ag-dot"></div>
+        <span class="ag-label">AIBGUARD™ · AiB™ VERIFIED</span>
+        <span class="ag-domains">— ${escapeHTML(String(domains))}</span>
+      </div>
+    </div>
+    <div class="ag-body">
+      ${logicOnlyRow}
+      ${bridgeRows}
+      <div style="margin-top:6px;font-size:9px;color:var(--text-sec);border-top:1px solid var(--gb);padding-top:5px;">
+        ⚠️ AIBGUARD v5.0β © / YOU VERIFY / — AiB™
+      </div>
+    </div>`;
+  wrap.appendChild(bar);
+  msgs.appendChild(wrap);
+  scrollChat();
+}
+
+// ══════════════════════════════════════
+// SEND QUERY — v3.1 with doc support
+// ══════════════════════════════════════
+async function sendQuery(query) {
+  if (S.processing || !query.trim()) return;
+  S.processing = true;
+
+  const jobId = 'job-' + Date.now() + '-' + Math.random().toString(36).substring(2, 8);
+  S.exchangeNum++;
+
+  const outboundClarifyContext = S.clarifyContext || null;
+  S.clarifyContext = null;
+
+  // Capture doc state for this exchange, then clear
+  const docForThisExchange = S.doc ? { ...S.doc } : null;
+  if (S.doc) clearDoc();
+
+  addBubble('user', query + (docForThisExchange ? `\n📎 [${docForThisExchange.name}]` : ''));
+  S.history.push({ role: 'User', text: query });
+
+  const ackWrap = addBubble('ack', '⏳ Verifying...');
+
+  try {
+    const payload = {
+      query,
+      apiKey:      S.apiKey,
+      provider:    S.llmProvider,
+      history:     S.history.slice(-20),
+      ticketId:    S.ticketId,
+      exchangeNum: S.exchangeNum,
+      sessionId:   S.sessionId,
+      emailToken:  S.emailToken,
+      jobId,
+      domainOverride: S.domainOverride || null,
+      adminBypass: S.isAdmin ? 'JONTEST' : null,
+      clarifyContext: outboundClarifyContext,
+      // v3.1 doc fields
+      docContent: docForThisExchange?.content || null,
+      docType:    docForThisExchange?.type    || null,
+      docName:    docForThisExchange?.name    || null
+    };
+
+    const res = await fetch('/.netlify/functions/verify-background', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({ error: 'Server error' }));
+      throw new Error(err.error || `HTTP ${res.status}`);
+    }
+  } catch(e) {
+    removeEl(ackWrap);
+    addBubble('bot', `Connection error: ${e.message}\n\nPlease check your API key and try again.`);
+    S.processing = false;
+    return;
+  }
+
+  let attempts = 0;
+  const poll = setInterval(async () => {
+    attempts++;
+    if (attempts > 300) {
+      clearInterval(poll);
+      removeEl(ackWrap);
+      addBubble('bot', 'Processing timeout. Please try again.');
+      S.processing = false;
+      return;
+    }
+    if (ackWrap && ackWrap._bubble) {
+      ackWrap._bubble.textContent = `⏳ Verifying... ${Math.round(attempts * 3)}s`;
+    }
+    try {
+      const r = await fetch(`/.netlify/functions/verify-status?jobId=${encodeURIComponent(jobId)}`);
+      const data = await r.json();
+      if (data.status === 'complete') {
+        clearInterval(poll);
+        removeEl(ackWrap);
+        handleResult(data);
+      } else if (data.status === 'error') {
+        clearInterval(poll);
+        removeEl(ackWrap);
+        addBubble('bot', `Error: ${data.error || 'Unknown error'}\n\nPlease try again.`);
+        S.processing = false;
+      }
+    } catch(e) { /* keep polling */ }
+  }, 3000);
+}
+
+// ══════════════════════════════════════
+// HANDLE RESULT — v3.1
+// ══════════════════════════════════════
+function handleResult(data) {
+  if (data.type === 'limit') {
+    S.processing = false;
+    showEmailModal(data.tier, data.limit);
+    return;
+  }
+
+  if (data.type === 'clarify') {
+    const questions = data.questions || [];
+    const safety    = data.safety || 50;
+    const qText     = questions.map((q,i) => `Q${i+1}: ${q}`).join('\n\n');
+    addBubble('bot', `Before I can answer, I need to understand a few things:\n\n${qText}\n\nPlease answer these and I'll respond immediately.`);
+    const entries = document.getElementById('oat-entries');
+    const d = document.createElement('div');
+    d.className = 'oat-entry';
+    d.style.borderLeftColor = 'var(--amber)';
+    d.innerHTML = `
+      <div style="font-size:9px;color:var(--text-sec);margin-bottom:8px;display:flex;justify-content:space-between;">
+        <span>⚠️ CLARIFICATION REQUIRED</span><span>${new Date().toLocaleTimeString()}</span>
+      </div>
+      <div class="oat-section-title">Safety Assessment</div>
+      <div style="font-size:9px;color:var(--amber);margin-bottom:8px;font-weight:700;">Safety: ${safety}% — clarification required before response</div>
+      ${data.floorSignal ? `<div style="font-size:9px;color:var(--text-sec);margin-bottom:8px;">Signal: "${escapeHTML(data.floorSignal)}"</div>` : ''}
+      <div class="oat-section-title">Questions Asked</div>
+      <div style="font-size:9px;color:var(--text-sec);margin-bottom:10px;">${questions.map((q,i)=>`<div style="margin-bottom:4px;"><b>Q${i+1}:</b> ${escapeHTML(q)}</div>`).join('')}</div>
+      <div class="verdict-stamp amber">⚠️ AWAITING CLARIFICATION — Safety: ${safety}%</div>
+      <div class="oat-hash"><span>${escapeHTML(data.oatHash||'CLR-PENDING')}</span><span class="oat-hash-label">● LOGGED</span></div>`;
+    entries.appendChild(d);
+    scrollOAT();
+    S.clarifyContext = { originalQuery: S.history.length > 0 ? S.history[S.history.length-1]?.text : '', questions, safetyInitial: safety, floorSignal: data.floorSignal || null };
+    S.oatLog.push({ type:'clarify', safety, questions, time: new Date().toISOString() });
+    S.processing = false;
+    return;
+  }
+
+  if (data.type === 'emergency') {
+    const t = data.template;
+    addBubble('bot', t.conclusion);
+    const entries = document.getElementById('oat-entries');
+    const d = document.createElement('div');
+    d.className = 'oat-entry verified';
+    const isBlock = (t.outcome||'').startsWith('T.REJ');
+    d.innerHTML = `
+      <div style="font-size:9px;color:var(--text-sec);margin-bottom:8px;display:flex;justify-content:space-between;">
+        <span>${isBlock?'🔒':'🚨'} ${escapeHTML(t.name||t.id)}</span><span>${new Date().toLocaleTimeString()}</span>
+      </div>
+      <div class="oat-section-title">Gate</div>
+      <div style="font-size:9px;color:var(--text-sec);margin-bottom:10px;">${escapeHTML(t.id)} fired pre-LLM — no analysis generated</div>
+      <div class="verdict-stamp ${isBlock?'red':'amber'}" style="margin-top:6px;">
+        ${isBlock?'🔴 REQUEST BLOCKED — '+escapeHTML(t.outcome||'T.REJ')+' LOGGED':'🚨 CRISIS RESPONSE ISSUED — '+escapeHTML(t.id)+' LOGGED'}
+      </div>
+      <div class="oat-hash"><span>${escapeHTML(t.id)}·${isBlock?'INJT':'988L'}·XXXX</span><span class="oat-hash-label">● LOGGED</span></div>`;
+    entries.appendChild(d);
+    scrollOAT();
+    S.oatLog.push({ type:'emergency', template:t, time: new Date().toISOString() });
+    S.history.push({ role:'AI', text: t.conclusion });
+    S.processing = false;
+    return;
+  }
+
+  const { parsed, oat, sheetsLogged, oatHash } = data;
+  // Hydrate oat
+  oat.concl          = parsed.concl;
+  oat.gaps           = parsed.gaps;
+  oat.sim            = parsed.sim;
+  oat.sources        = oat.sources || parsed.sources;
+  oat.disclaimerBridge = oat.disclaimerBridge || [];
+  oat.isLogicOnly    = oat.isLogicOnly !== undefined ? oat.isLogicOnly : true;
+  oat.finalLiability = oat.finalLiability || oat.conf?.liability || 'MODERATE';
+
+  // LEFT — answer
+  addBubble('bot', parsed.concl);
+
+  // LEFT — context notice
+  if (oat.noticeTriggered) {
+    const msgs = document.getElementById('chat-msgs');
+    const nw = document.createElement('div'); nw.className='bwrap';
+    const nb = document.createElement('div');
+    nb.style.cssText='align-self:flex-start;max-width:85%;font-size:11px;color:var(--amber);background:rgba(196,122,0,0.07);border:1px solid rgba(196,122,0,0.25);border-radius:6px;padding:7px 12px;font-weight:600;line-height:1.5;margin-top:-4px;';
+    nb.textContent='NOTICE: Further context is required to provide a fully verified AiB™CHECK answer.';
+    nw.appendChild(nb); msgs.appendChild(nw); scrollChat();
+  }
+
+  // RIGHT — OAT receipt v3.1
+  addOATReceipt(oat, sheetsLogged, oatHash);
+
+  // LEFT — AIBGUARD bar
+  const liability = (oat.finalLiability||'low').toLowerCase();
+  const domain    = oat.vgResult?.domain || 'general';
+  addAIBGUARD(liability, domain, oat);
+
+  S.history.push({ role:'AI', text: parsed.concl });
+  S.processing = false;
+}
+
+// ══════════════════════════════════════
+// EMAIL GATE — v6.3
+// ══════════════════════════════════════
+function showEmailModal(tier, limit) {
+  const overlay = document.getElementById('email-modal-overlay');
+  const bodyTxt = document.getElementById('em-body-text');
+  if (tier === 'email') {
+    bodyTxt.innerHTML = `You've used your <strong>${limit} verified exchanges</strong> today.<br>Pick up where you left off — <strong>50 exchanges for $20</strong>, no daily reset.`;
+    document.getElementById('em-submit').style.display = 'none';
+    document.getElementById('em-input').style.display  = 'none';
+    document.getElementById('em-skip').textContent = 'View bundle options below';
+  }
+  overlay.classList.add('active');
+  document.getElementById('em-input').focus();
+}
+function hideEmailModal() { document.getElementById('email-modal-overlay').classList.remove('active'); }
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('em-submit').addEventListener('click', async () => {
+    const email = document.getElementById('em-input').value.trim();
+    const errEl = document.getElementById('em-error');
+    const btn   = document.getElementById('em-submit');
+    errEl.style.display = 'none';
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      errEl.textContent = 'Please enter a valid email address.';
+      errEl.style.display = 'block';
+      return;
+    }
+    btn.textContent = 'Registering...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('/.netlify/functions/register-email', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ email })
+      });
+      const d = await res.json();
+      if (d.token) {
+        S.emailToken = d.token;
+        localStorage.setItem('aib_email_token', d.token);
+        hideEmailModal();
+        showToast('✅ Email verified — 10 exchanges/day unlocked');
+      } else {
+        errEl.textContent = d.error || 'Registration failed. Try again.';
+        errEl.style.display = 'block';
+        btn.textContent = 'Get 10 Exchanges/Day Free →';
+        btn.disabled = false;
+      }
+    } catch(e) {
+      errEl.textContent = 'Network error. Try again.';
+      errEl.style.display = 'block';
+      btn.textContent = 'Get 10 Exchanges/Day Free →';
+      btn.disabled = false;
+    }
+  });
+  document.getElementById('em-skip').addEventListener('click', hideEmailModal);
+});
+
+// ══════════════════════════════════════
+// HEARTBEAT
+// ══════════════════════════════════════
+function aibguardHeartbeat() {
+  S.history = [];
+  S.domainOverride = null;
+  const time = new Date().toLocaleTimeString();
+  addOATEntry(`◉ AiBCHECK™ — ${time}\nSession confirmed active.\n⚠️ AIBGUARD v5.0β © / YOU VERIFY /`, 'heartbeat');
+}
+function startHeartbeat() {
+  S.heartbeatSecondsLeft = 600;
+  if (S.heartbeatIntervalId) clearInterval(S.heartbeatIntervalId);
+  S.heartbeatIntervalId = setInterval(() => {
+    S.heartbeatSecondsLeft--;
+    const m = Math.floor(S.heartbeatSecondsLeft/60);
+    const s = S.heartbeatSecondsLeft%60;
+    const el = document.getElementById('reset-timer');
+    if (el) {
+      el.textContent = `Session remaining: ${m}:${String(s).padStart(2,'0')}`;
+      el.className   = 'reset-timer'+(S.heartbeatSecondsLeft<=60?' warning':'');
+    }
+    if (S.heartbeatSecondsLeft <= 0) { aibguardHeartbeat(); S.heartbeatSecondsLeft=600; }
+  }, 1000);
+}
+function manualReset() {
+  aibguardHeartbeat();
+  startHeartbeat();
+  clearDoc();
+  addBubble('system-notice','↺ Session reset — AiBCHECK™ confirmed active.');
+}
+
+// ══════════════════════════════════════
+// TOOLBAR
+// ══════════════════════════════════════
+document.getElementById('btn-reset').addEventListener('click', manualReset);
+document.getElementById('domain-override').addEventListener('change', function() {
+  S.domainOverride = this.value || null;
+  showToast(this.value ? `Domain locked: ${this.options[this.selectedIndex].text}` : 'Domain: Auto-detect');
+});
+document.getElementById('btn-copy').addEventListener('click', () => {
+  const text = `transpAIrency™ v3.1 · ${S.ticketId} · ${new Date().toLocaleString()}\n© 2026 Honest AiB™ Holdings, Inc.\n⚠️ AIBGUARD v5.0β © / YOU VERIFY / — AiB™`;
+  navigator.clipboard.writeText(text).then(()=>showToast('Copied!')).catch(()=>showToast('Copy failed'));
+});
+document.getElementById('btn-dl-chat').addEventListener('click', () => {
+  const lines = [];
+  document.querySelectorAll('.bubble').forEach(b => {
+    const type = b.classList.contains('user')?'USER':b.classList.contains('bot')?'AI':'SYS';
+    lines.push(`[${type}] ${b.textContent}`);
+  });
+  dlFile(`transpAIrency-chat-${S.ticketId}.txt`,
+    `transpAIrency™ v3.1 Chat Transcript\n${S.ticketId} · ${new Date().toISOString()}\n${'='.repeat(60)}\n\n${lines.join('\n\n')}`);
+});
+document.getElementById('btn-dl-audit').addEventListener('click', () => {
+  const lines = [`transpAIrency™ v3.1 OAT Audit Report`, S.ticketId, new Date().toISOString(), '='.repeat(60), ''];
+  S.oatLog.forEach(entry => {
+    if (entry.type==='receipt' && entry.oat) {
+      const o = entry.oat;
+      lines.push(`EXCHANGE: ${o.exchangeId}`);
+      lines.push(`VERDICT: ${o.verdict}`);
+      lines.push(`DOMAIN: ${o.vgResult?.domain||'general'} | LIABILITY: ${o.conf?.liability}`);
+      lines.push(`CONF: Analysis:${o.conf?.analysis}% Output:${o.conf?.output}% Safety:${o.conf?.quality}%`);
+      if (o.pycheck?.recommendations?.length) {
+        lines.push('PYcheck recommendations:');
+        o.pycheck.recommendations.forEach(r => lines.push('  - '+r));
+      }
+      if (o.docInfo) lines.push(`DOCUMENT: ${o.docInfo.name} (${o.docInfo.type})`);
+      lines.push('');
+    } else { lines.push(entry.text||''); lines.push(''); }
+  });
+  lines.push('⚠️ AIBGUARD v5.0β © / YOU VERIFY / — AiB™');
+  dlFile(`transpAIrency-audit-${S.ticketId}.txt`, lines.join('\n'));
+});
+function dlFile(name, content) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([content],{type:'text/plain'}));
+  a.download = name; a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+// ══════════════════════════════════════
+// INPUT HANDLING
+// ══════════════════════════════════════
+const input   = document.getElementById('chat-input');
+const sendBtn = document.getElementById('send-btn');
+
+input.addEventListener('keydown', e => {
+  if (e.key==='Enter' && !e.shiftKey) { e.preventDefault(); doSend(); }
+});
+input.addEventListener('input', () => {
+  input.style.height='auto';
+  input.style.height=Math.min(input.scrollHeight,120)+'px';
+});
+sendBtn.addEventListener('click', doSend);
+function doSend() {
+  const q = input.value.trim();
+  if (!q || S.processing) return;
+  input.value='';
+  input.style.height='auto';
+  sendQuery(q);
+}
+</script>
+</body>
+</html>

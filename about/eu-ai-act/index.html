@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EU AI Act Compliance Declaration — transpAIrency™</title>
+<link rel="icon" type="image/png" href="/haib-badge.png">
+<meta name="description" content="transpAIrency™ EU AI Act compliance declaration. Risk tier, transparency requirements, human oversight documentation. Honest AiB Holdings, Inc.">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--void:#060608;--deep:#0d0d12;--surface:#14141c;--line:rgba(255,255,255,0.06);--gold:#c8a84b;--gold-border:rgba(200,168,75,0.2);--white:#eeebe3;--off:#8f8d97;--dim:#525060;--green:#22c55e;--amber:#f59e0b;--red:#ef4444;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--void);color:var(--white);font-family:'IBM Plex Sans',sans-serif;font-weight:300;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,6,8,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);}
+.nav-brand{font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:500;color:var(--gold);text-decoration:none;}
+.nav-links{display:flex;gap:24px;}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--off);text-decoration:none;}
+.nav-links a:hover{color:var(--gold);}
+.page{max-width:820px;margin:0 auto;padding:120px 60px 80px;}
+
+.doc-header{border-bottom:2px solid var(--gold-border);padding-bottom:32px;margin-bottom:40px;}
+.doc-type{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.doc-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:8px;}
+.doc-sub{font-size:14px;color:var(--off);margin-bottom:16px;}
+.doc-meta{display:flex;gap:24px;flex-wrap:wrap;}
+.doc-meta-item{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);}
+.doc-meta-item strong{color:var(--off);}
+
+.status-banner{background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);border-left:4px solid var(--green);padding:16px 20px;margin-bottom:36px;display:flex;align-items:center;gap:14px;}
+.sb-icon{font-size:20px;}
+.sb-text{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--green);font-weight:700;letter-spacing:0.05em;}
+.sb-sub{font-size:12px;color:var(--off);margin-top:2px;}
+
+h2{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin:40px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--gold-border);}
+h3{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--white);margin:20px 0 8px;letter-spacing:0.05em;}
+p{font-size:14px;color:var(--off);line-height:1.85;margin-bottom:14px;}
+p strong{color:var(--white);}
+a{color:var(--gold);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+.article-block{background:var(--deep);border:1px solid var(--line);border-left:3px solid var(--gold);padding:20px 24px;margin:16px 0;border-radius:0 4px 4px 0;}
+.ab-article{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.ab-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:6px;}
+.ab-body{font-size:13px;color:var(--off);line-height:1.7;}
+.ab-status{display:inline-block;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;background:rgba(34,197,94,0.1);color:var(--green);border:1px solid rgba(34,197,94,0.25);border-radius:2px;}
+
+.risk-tier{background:var(--surface);border:1px solid var(--line);padding:28px;margin:24px 0;position:relative;overflow:hidden;}
+.risk-tier::after{content:'HIGH RISK';position:absolute;top:16px;right:20px;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:3px;color:rgba(245,158,11,0.4);}
+.rt-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}
+.rt-tier{font-size:22px;font-weight:700;color:var(--white);margin-bottom:8px;}
+.rt-basis{font-size:13px;color:var(--off);line-height:1.7;}
+.rt-note{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--dim);font-style:italic;}
+
+.compliance-table{width:100%;border-collapse:collapse;margin:16px 0 28px;}
+.compliance-table th{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);padding:8px 12px;border-bottom:1px solid var(--line);}
+.compliance-table td{padding:12px;border-bottom:1px solid var(--line);font-size:13px;color:var(--off);vertical-align:top;}
+.compliance-table td:first-child{color:var(--white);font-weight:500;width:30%;}
+.compliance-table td:last-child{width:80px;text-align:center;}
+.status-pill{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:2px;}
+.sp-live{background:rgba(34,197,94,0.1);color:var(--green);border:1px solid rgba(34,197,94,0.25);}
+.sp-open{background:rgba(245,158,11,0.1);color:var(--amber);border:1px solid rgba(245,158,11,0.25);}
+
+.declaration-block{background:var(--deep);border:2px solid var(--gold-border);padding:32px;margin:36px 0;position:relative;}
+.declaration-block::before{content:'OFFICIAL DECLARATION';position:absolute;top:-1px;left:24px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--gold);background:var(--void);padding:0 8px;}
+.decl-text{font-size:15px;color:var(--white);line-height:1.85;}
+.decl-sig{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--off);}
+.decl-sig strong{color:var(--white);}
+
+.pg-footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.pf-copy{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);}
+.pf-guard{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);}
+
+@media(max-width:640px){nav{padding:16px 20px;}.page{padding:100px 20px 60px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand">transpAIrency™</a>
+  <div class="nav-links">
+    <a href="/about/">About</a>
+    <a href="/about/eu-ai-act/" style="color:var(--gold);">EU AI Act</a>
+    <a href="/about/one-pager/">One-Pager</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="doc-header">
+    <div class="doc-type">Compliance Declaration · Public Document</div>
+    <div class="doc-title">EU AI Act<br>Compliance Declaration</div>
+    <div class="doc-sub">transpAIrency™ v5.0 · Honest AiB™ Holdings, Inc.</div>
+    <div class="doc-meta">
+      <div class="doc-meta-item"><strong>Issued:</strong> February 24, 2026</div>
+      <div class="doc-meta-item"><strong>Version:</strong> v5.0</div>
+      <div class="doc-meta-item"><strong>Status:</strong> Active</div>
+      <div class="doc-meta-item"><strong>Issuer:</strong> Jon Pearlstone, CPA · Honest AiB™ Holdings, Inc.</div>
+    </div>
+  </div>
+
+  <div class="status-banner">
+    <div class="sb-icon">✅</div>
+    <div>
+      <div class="sb-text">EU AI Act Compliant — High-Risk Domain with Full Transparency Architecture</div>
+      <div class="sb-sub">Article 13 · Article 14 · Article 15 · Annex III(5b) — all requirements addressed in product architecture</div>
+    </div>
+  </div>
+
+  <h2>1. Product Identification</h2>
+  <p><strong>Product:</strong> transpAIrency™<br>
+  <strong>Operator:</strong> Honest AiB™ Holdings, Inc., Los Angeles, California, USA<br>
+  <strong>Contact:</strong> <a href="mailto:jon@aibcheck.com">jon@aibcheck.com</a><br>
+  <strong>URLs:</strong> <a href="https://transpairencyagent.netlify.app">transpairencyagent.netlify.app</a> · <a href="https://aibcheck.com">aibcheck.com</a><br>
+  <strong>Description:</strong> AI output verification platform. Accepts natural language queries, routes through VGRAPH™ domain classification, calls a large language model, and subjects the response to five deterministic post-generation verification gates (PYcheck™). Every exchange produces a timestamped OAT™ audit receipt.</p>
+
+  <h2>2. Risk Classification</h2>
+  <div class="risk-tier">
+    <div class="rt-label">EU AI Act Risk Tier</div>
+    <div class="rt-tier">High-Risk — Annex III, Point 5(b) and General Purpose AI with Safety Relevance</div>
+    <div class="rt-basis">
+      transpAIrency™ operates across medical, legal, financial, tax, and crisis domains. Outputs in these domains influence decisions that affect individual safety, legal rights, and financial welfare. Under EU AI Act Annex III classification, this constitutes high-risk AI in the context of access to essential services and safety-critical information delivery.
+    </div>
+    <div class="rt-note">
+      Note: transpAIrency™ is not the decision-maker — it is the verification layer. Every output includes mandatory professional referral, IDK enforcement at the 95-100% confidence threshold, and the AIBGUARD™ disclaimer. This architecture is designed to function as the human oversight mechanism the EU AI Act requires, not to replace it. If a EU regulatory authority determines a different classification applies, Honest AiB™ Holdings welcomes that determination and will update this declaration accordingly. <a href="mailto:jon@aibcheck.com">Contact us.</a>
+    </div>
+  </div>
+
+  <h2>3. Article-by-Article Compliance</h2>
+
+  <div class="article-block">
+    <div class="ab-article">Article 13 — Transparency &amp; Information</div>
+    <div class="ab-title">Obligation: Users must be informed they are interacting with an AI system.</div>
+    <div class="ab-body">transpAIrency™ discloses its AI nature on every screen. The AI Disclosure page at <a href="https://aibcheck.com/legal/ai-disclosure">aibcheck.com/legal/ai-disclosure</a> is linked in every footer. AIBGUARD™ footer ("⚠️ AIBGUARD v5.0β © / YOU VERIFY /") appears on every output. Every response contains the disclaimer: "AI cannot provide [medical/legal/financial] advice — consult a licensed professional."</div>
+    <div class="ab-status">✅ IMPLEMENTED</div>
+  </div>
+
+  <div class="article-block">
+    <div class="ab-article">Article 14 — Human Oversight</div>
+    <div class="ab-title">Obligation: High-risk AI systems must allow humans to oversee, intervene, and override.</div>
+    <div class="ab-body">Every output includes a mandatory "IDK + help pathway" structure when confidence is below threshold. Professional disclaimer bridges route users to qualified humans in all regulated domains. The system cannot diagnose, prescribe, advise, or decide — it can only verify and disclose. The OAT™ audit trail provides complete documentation for any post-hoc human review. Crisis domain queries fire immediate human resource referrals (988, Poison Control) before any AI content.</div>
+    <div class="ab-status">✅ IMPLEMENTED</div>
+  </div>
+
+  <div class="article-block">
+    <div class="ab-article">Article 15 — Accuracy, Robustness &amp; Cybersecurity</div>
+    <div class="ab-title">Obligation: High-risk AI must be accurate, robust against errors, and resistant to adversarial manipulation.</div>
+    <div class="ab-body">PYcheck™ 5-gate post-generation validation catches and flags LLM errors before delivery. VGRAPH™ v5.2 provides pre-LLM domain classification with liability floor thresholds. E.007 injection detection (pre-LLM) blocks adversarial prompt injection, DAN bypass, and IP extraction attempts — confirmed against 3 adversarial vectors in CAAi-AUDIT-003 (Feb 23, 2026). CANARY token provides integrity monitoring. All methodology is server-side — never exposed to browser manipulation.</div>
+    <div class="ab-status">✅ IMPLEMENTED</div>
+  </div>
+
+  <div class="article-block">
+    <div class="ab-article">Article 26 — Obligations of Deployers</div>
+    <div class="ab-title">Obligation: Deployers must use AI in accordance with instructions, implement human oversight, and monitor operation.</div>
+    <div class="ab-body">transpAIrency™ is designed as the compliance mechanism for deployers — not as a tool that bypasses these obligations. The OAT™ audit trail on every exchange provides the monitoring record Article 26 requires. The free tier rate limit (10/day per IP) and session data management (disclosed at aibcheck.com/legal/privacy) are consistent with responsible deployment obligations.</div>
+    <div class="ab-status">✅ IMPLEMENTED</div>
+  </div>
+
+  <h2>4. Compliance Requirements Matrix</h2>
+  <table class="compliance-table">
+    <thead>
+      <tr><th>Requirement</th><th>Implementation</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>AI Nature Disclosure</td><td>AI Disclosure page live · AIBGUARD footer on every output · professional disclaimer on all regulated domain responses</td><td><span class="status-pill sp-live">Live</span></td></tr>
+      <tr><td>User Rights Information</td><td>Privacy Policy (CCPA/CPRA compliant) · session data disclosed · deletion right stated · aibcheck.com/legal/privacy</td><td><span class="status-pill sp-live">Live</span></td></tr>
+      <tr><td>Technical Documentation</td><td>OAT™ hash chain + Google Sheets logging on every exchange. CAAi-AUDIT-003 audit record (Feb 2026). CHANGELOG v4.4→v5.0.</td><td><span class="status-pill sp-live">Live</span></td></tr>
+      <tr><td>Human Oversight Mechanism</td><td>IDK mandate (95%/100% threshold by domain) · professional referral on all HIGH/CRITICAL outputs · crisis resources pre-LLM</td><td><span class="status-pill sp-live">Live</span></td></tr>
+      <tr><td>Accuracy Documentation</td><td>99.5% legal billing accuracy (live audit data) · 10/10 KillShot queries · CAAi-AUDIT-003-PRELIM CONDITIONAL CERTIFIED</td><td><span class="status-pill sp-live">Live</span></td></tr>
+      <tr><td>Adversarial Robustness</td><td>E.007 pre-LLM injection gate · 3 adversarial vectors defeated (CAAi-AUDIT-003) · CANARY integrity token</td><td><span class="status-pill sp-live">Live</span></td></tr>
+      <tr><td>Terms of Service</td><td>aibcheck.com/legal/terms · Acceptable Use policy · linked in all footers</td><td><span class="status-pill sp-live">Live</span></td></tr>
+      <tr><td>Incident Reporting Procedure</td><td>jon@aibcheck.com · monitored actively · response SLA being formalized</td><td><span class="status-pill sp-open">In Progress</span></td></tr>
+      <tr><td>Formal GPAI Registration</td><td>EU AI Act enforcement begins Aug 2026 for high-risk systems. Registration timeline being monitored.</td><td><span class="status-pill sp-open">Monitoring</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2>5. Official Declaration</h2>
+  <div class="declaration-block">
+    <div class="decl-text">
+      Honest AiB™ Holdings, Inc. hereby declares that transpAIrency™ v5.0 has been designed and deployed with EU AI Act compliance as a foundational architectural requirement. The transparency, human oversight, accuracy, and robustness obligations of the EU AI Act are not add-on features — they are the core product. Every output carries an immutable audit trail. Every high-stakes query carries a human referral pathway. Every output below confidence threshold carries an IDK declaration.<br><br>
+      We welcome scrutiny from EU regulatory authorities, legal scholars, and compliance officers. If any aspect of this declaration is incorrect, incomplete, or inconsistent with EU AI Act requirements, we want to know. That is precisely the kind of adversarial pressure that makes the product better.<br><br>
+      Investor inquiries, partnership discussions, and regulatory conversations are welcome.
+    </div>
+    <div class="decl-sig">
+      <strong>Jon Pearlstone, CPA</strong> · CAAi™ Certified Auditor of AI<br>
+      Founder, Honest AiB™ Holdings, Inc. · Los Angeles, California<br>
+      <a href="mailto:jon@aibcheck.com">jon@aibcheck.com</a> · <a href="https://honestaib.com">honestaib.com</a><br>
+      Dated: February 24, 2026 · Document Version: v5.0
+    </div>
+  </div>
+
+  <div class="pg-footer">
+    <div class="pf-copy">© 2026 Honest AiB Holdings, Inc. · Patent Pending · This declaration is a public document and may be reproduced with attribution.</div>
+    <div class="pf-guard">⚠️ AIBGUARD v5.0β © / YOU VERIFY / — AiB™</div>
+  </div>
+
+</div>
+</body>
+</html>

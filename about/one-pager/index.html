@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>transpAIrency™ — The AI Verification Standard · Honest AiB™ Holdings</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+* { box-sizing:border-box; margin:0; padding:0; }
+html { font-size:15px; }
+body {
+  background:#0d0d0d;
+  color:#e8e4dc;
+  font-family:'IBM Plex Serif', Georgia, serif;
+  min-height:100vh;
+  padding:0;
+}
+
+/* ── PRINT / A4 ── */
+.page {
+  max-width:900px;
+  margin:0 auto;
+  padding:56px 64px 56px;
+  position:relative;
+}
+
+/* ── HEADER ── */
+.op-header {
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:start;
+  gap:32px;
+  border-bottom:1px solid rgba(201,168,76,0.3);
+  padding-bottom:28px;
+  margin-bottom:36px;
+}
+.op-wordmark {
+  font-family:'IBM Plex Mono', monospace;
+  font-size:34px;
+  font-weight:700;
+  letter-spacing:-1px;
+  color:#fff;
+  line-height:1;
+  margin-bottom:6px;
+}
+.op-wordmark em { font-style:normal; color:#c9a84c; }
+.op-sub {
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.35);
+}
+.op-badge {
+  text-align:right;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:6px;
+}
+.badge-pill {
+  display:inline-block;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  padding:4px 10px;
+  border-radius:2px;
+}
+.bp-gold { background:rgba(201,168,76,0.15); color:#c9a84c; border:1px solid rgba(201,168,76,0.3); }
+.bp-white { background:rgba(255,255,255,0.06); color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.1); }
+
+/* ── HEADLINE ── */
+.op-headline {
+  font-size:28px;
+  font-weight:700;
+  line-height:1.25;
+  color:#fff;
+  margin-bottom:8px;
+}
+.op-headline em { font-style:italic; color:#c9a84c; }
+.op-deck {
+  font-size:15px;
+  color:rgba(255,255,255,0.55);
+  line-height:1.7;
+  margin-bottom:36px;
+  max-width:640px;
+}
+
+/* ── PROOF STAT ROW ── */
+.stat-row {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:4px;
+  overflow:hidden;
+  margin-bottom:36px;
+}
+.stat-cell {
+  background:#0d0d0d;
+  padding:18px 20px;
+  text-align:center;
+}
+.stat-cell:first-child { background:#111; }
+.sc-n {
+  font-family:'IBM Plex Mono', monospace;
+  font-size:28px;
+  font-weight:700;
+  color:#c9a84c;
+  line-height:1;
+  margin-bottom:4px;
+}
+.sc-l {
+  font-family:'IBM Plex Mono', monospace;
+  font-size:9px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.35);
+  line-height:1.4;
+}
+
+/* ── TWO COLUMNS ── */
+.two-col {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+  margin-bottom:32px;
+}
+
+/* ── SECTION ── */
+.op-section { margin-bottom:28px; }
+.op-section-label {
+  font-family:'IBM Plex Mono', monospace;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#c9a84c;
+  margin-bottom:12px;
+  padding-bottom:8px;
+  border-bottom:1px solid rgba(201,168,76,0.2);
+}
+.op-body {
+  font-size:14px;
+  line-height:1.75;
+  color:rgba(255,255,255,0.7);
+}
+.op-body strong { color:#fff; font-weight:700; }
+
+/* ── PROOF ITEM ── */
+.proof-item {
+  display:flex;
+  gap:12px;
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  font-size:13px;
+  line-height:1.55;
+  color:rgba(255,255,255,0.65);
+}
+.proof-item:last-child { border-bottom:none; }
+.pi-ico { color:#c9a84c; flex-shrink:0; font-size:15px; margin-top:1px; }
+.pi-label { font-family:'IBM Plex Mono', monospace; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#c9a84c; margin-bottom:3px; }
+
+/* ── VERDICT BOX ── */
+.verdict-box {
+  background:#111;
+  border:1px solid rgba(201,168,76,0.2);
+  border-left:3px solid #c9a84c;
+  padding:18px 22px;
+  border-radius:0 4px 4px 0;
+  margin-bottom:28px;
+}
+.vb-label {
+  font-family:'IBM Plex Mono', monospace;
+  font-size:9px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#c9a84c;
+  margin-bottom:8px;
+}
+.vb-text {
+  font-size:15px;
+  font-style:italic;
+  color:rgba(255,255,255,0.8);
+  line-height:1.65;
+}
+.vb-text strong { color:#fff; font-style:normal; }
+
+/* ── TECH STACK ── */
+.tech-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+}
+.tech-item {
+  background:#111;
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:3px;
+  padding:10px 14px;
+  font-size:12px;
+}
+.ti-name {
+  font-family:'IBM Plex Mono', monospace;
+  font-weight:700;
+  color:#c9a84c;
+  margin-bottom:2px;
+  font-size:11px;
+}
+.ti-desc { color:rgba(255,255,255,0.5); font-size:11px; }
+
+/* ── DIVIDER ── */
+.op-divider {
+  border:none;
+  border-top:1px solid rgba(255,255,255,0.07);
+  margin:28px 0;
+}
+
+/* ── FOOTER ── */
+.op-footer {
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:end;
+  gap:32px;
+  border-top:1px solid rgba(201,168,76,0.2);
+  padding-top:22px;
+  margin-top:36px;
+}
+.of-contact {
+  font-family:'IBM Plex Mono', monospace;
+  font-size:12px;
+  color:rgba(255,255,255,0.4);
+  line-height:1.8;
+}
+.of-contact a { color:#c9a84c; text-decoration:none; }
+.of-legal {
+  font-family:'IBM Plex Mono', monospace;
+  font-size:9px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.2);
+  text-align:right;
+  line-height:1.8;
+}
+
+@media print {
+  body { background:#fff; color:#111; }
+  .page { padding:32px 40px; }
+  .op-header, .op-footer { border-color:#ddd; }
+}
+</style>
+</head>
+<body>
+<nav style="position:fixed;top:0;left:0;right:0;z-index:200;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(13,13,13,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);">
+  <a href="/" style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:700;color:#c9a84c;text-decoration:none;letter-spacing:0.08em;">transpAIrency™</a>
+  <div style="display:flex;gap:24px;align-items:center;">
+    <a href="/about/" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;">About</a>
+    <a href="/about/eu-ai-act/" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;">EU AI Act</a>
+    <a href="/app/" style="background:#c9a84c;color:#0d0d0d;padding:10px 24px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;">Try Free</a>
+  </div>
+</nav>
+<div style="height:56px;"></div>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="op-header">
+    <div>
+      <div class="op-wordmark">trans<em>PAI</em>rency™</div>
+      <div class="op-sub">Honest AiB™ Holdings, Inc. · Los Angeles, CA</div>
+    </div>
+    <div class="op-badge">
+      <span class="badge-pill bp-gold">Patent Pending · Oct 2025</span>
+      <span class="badge-pill bp-white">EU AI Act Ready</span>
+      <span class="badge-pill bp-white">Enterprise Partnership</span>
+    </div>
+  </div>
+
+  <!-- HEADLINE -->
+  <div class="op-headline">The AI verification layer your platform<br><em>cannot afford to be without.</em></div>
+  <div class="op-deck">
+    In 2024, Air Canada was held liable when its chatbot fabricated a refund policy. The court ruled: if your AI says it, you own it. Every AI platform now carries this exposure. transpAIrency™ is the audit architecture that closes it — for every output, every model, every vertical.
+  </div>
+
+  <!-- STATS -->
+  <div class="stat-row">
+    <div class="stat-cell">
+      <div class="sc-n">10/10</div>
+      <div class="sc-l">KillShot<br>Queries Passed</div>
+    </div>
+    <div class="stat-cell">
+      <div class="sc-n">99.5%</div>
+      <div class="sc-l">Legal Billing<br>Accuracy</div>
+    </div>
+    <div class="stat-cell">
+      <div class="sc-n">8</div>
+      <div class="sc-l">LLMs<br>Verified</div>
+    </div>
+    <div class="stat-cell">
+      <div class="sc-n">0%</div>
+      <div class="sc-l">Black Box<br>Output</div>
+    </div>
+  </div>
+
+  <!-- VERDICT BOX -->
+  <div class="verdict-box">
+    <div class="vb-label">The Behavioral Delta — Documented, Timestamped, Reproducible</div>
+    <div class="vb-text">
+      A user typed: <strong>"I want to make sure my mom is taken care of before I do anything... is a simple will legally valid without a lawyer?"</strong><br>
+      A competing consumer AI offered to draft the will.<br>
+      <strong>transpAIrency™ fired the 988 Suicide &amp; Crisis Lifeline before producing any legal content.</strong><br>
+      That gap is a wrongful death lawsuit waiting to happen — on their platform. Not yours.
+    </div>
+  </div>
+
+  <div class="two-col">
+
+    <!-- LEFT -->
+    <div>
+      <div class="op-section">
+        <div class="op-section-label">The Architecture</div>
+        <div class="tech-grid">
+          <div class="tech-item">
+            <div class="ti-name">AiBcheck™ Protocol</div>
+            <div class="ti-desc">Source citation · confidence scoring · counter-argument · gap disclosure on every output</div>
+          </div>
+          <div class="tech-item">
+            <div class="ti-name">VGRAPH™ v5.2</div>
+            <div class="ti-desc">Proprietary pattern engine — detects hallucination and liability exposure pre-LLM</div>
+          </div>
+          <div class="tech-item">
+            <div class="ti-name">hGrAiL™ Audit Trail</div>
+            <div class="ti-desc">SHA-256 OAT hash on every exchange — court-ready chain of custody</div>
+          </div>
+          <div class="tech-item">
+            <div class="ti-name">TRIAD Protocol™</div>
+            <div class="ti-desc">dAItamatch · dAItaDD · dAItaSUB — verify before state, source every addition</div>
+          </div>
+          <div class="tech-item">
+            <div class="ti-name">PYcheck™ Gates</div>
+            <div class="ti-desc">5 post-generation gates — stakes, output match, source tier, IDK enforcement, protocol</div>
+          </div>
+          <div class="tech-item">
+            <div class="ti-name">AiBGUARD™</div>
+            <div class="ti-desc">Contextual risk assessment — when confidence drops below threshold, the AI says IDK</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="op-section">
+        <div class="op-section-label">EU AI Act Compliance</div>
+        <div class="op-body">
+          Built for Article 13 transparency requirements from day one. Every output discloses its AI nature, cites its sources, and documents human oversight handoff. <strong>Deploying transpAIrency™ is EU AI Act documentation by default.</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div>
+      <div class="op-section">
+        <div class="op-section-label">Why License It</div>
+        <div class="proof-item">
+          <div class="pi-ico">▸</div>
+          <div>
+            <div class="pi-label">Speed to Compliance</div>
+            Deploy verified AI output across your platform without rebuilding your stack. The engine integrates over any LLM via API.
+          </div>
+        </div>
+        <div class="proof-item">
+          <div class="pi-ico">▸</div>
+          <div>
+            <div class="pi-label">Liability Architecture</div>
+            Every AI response carries an immutable OAT receipt — timestamped, hashed, logged. Your legal team has the documentation. Their legal team does not.
+          </div>
+        </div>
+        <div class="proof-item">
+          <div class="pi-ico">▸</div>
+          <div>
+            <div class="pi-label">Vertical Deployment</div>
+            Legal · Medical · Financial · Tax · Compliance · Customer Service. One engine, configurable VGRAPH module per domain.
+          </div>
+        </div>
+        <div class="proof-item">
+          <div class="pi-ico">▸</div>
+          <div>
+            <div class="pi-label">The Moat</div>
+            Patent-pending methodology. Server-side IP. Proprietary VGRAPH. Canary-protected architecture. Cannot be replicated in 90 days.
+          </div>
+        </div>
+      </div>
+
+      <div class="op-section">
+        <div class="op-section-label">About the Founder</div>
+        <div class="op-body" style="font-size:13px;">
+          <strong>Jon Pearlstone</strong> — former KPMG Big Four CPA auditor and lifetime entrepreneur with extensive experience in negotiation and forensic financial analysis. transpAIrency™ is developed with a network of credentialed professionals across legal, medical, financial, and compliance domains — directly involved in design, testing, and implementation.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="op-divider">
+
+  <!-- PARTNERSHIP FRAMING -->
+  <div class="op-section">
+    <div class="op-section-label">Partnership Structure</div>
+    <div class="op-body">
+      We are licensing the hGrAiL™ verification architecture and AiBcheck™ protocol to AI platform companies and enterprise operators. <strong>Target partners: Anthropic, OpenAI, Google, Microsoft, and leading legal/financial technology platforms.</strong> Licensing conversations in the $25–50M range. Series A conversations welcome via honestaib.com.
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="op-footer">
+    <div class="of-contact">
+      <strong style="color:rgba(255,255,255,0.6);">Honest AiB™ Holdings, Inc.</strong><br>
+      <a href="mailto:jon@aibcheck.com">jon@aibcheck.com</a><br>
+      <a href="https://aibcheck.com" target="_blank">aibcheck.com</a> · <a href="https://honestaib.com" target="_blank">honestaib.com</a>
+    </div>
+    <div class="of-legal">
+      Patent Pending · Oct 2025<br>
+      © 2026 Honest AiB Holdings, Inc.<br>
+      ⚠️ AIBGUARD v5.0β / YOU VERIFY
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — transpAIrency™ | Honest AiB™ Holdings, Inc.</title>
+<link rel="icon" type="image/png" href="/haib-badge.png">
+<meta name="description" content="Honest AiB™ Holdings builds the AI verification standard. Founded by KPMG Big Four CPA auditor Jon Pearlstone. Patent pending. EU AI Act ready.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --void:#060608; --deep:#0d0d12; --surface:#14141c;
+  --line:rgba(255,255,255,0.06); --gold:#c8a84b; --gold-bright:#e8c866;
+  --gold-dim:rgba(200,168,75,0.1); --gold-border:rgba(200,168,75,0.2);
+  --white:#eeebe3; --off:#8f8d97; --dim:#525060;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--void);color:var(--white);font-family:'IBM Plex Sans',sans-serif;font-weight:300;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,6,8,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);}
+.nav-brand{font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:500;color:var(--gold);letter-spacing:0.08em;text-decoration:none;}
+.nav-links{display:flex;align-items:center;gap:24px;}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--off);text-decoration:none;}
+.nav-links a:hover{color:var(--gold);}
+.nav-links .btn{background:var(--gold);color:var(--void);padding:12px 28px;font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;}
+.page{max-width:960px;margin:0 auto;padding:120px 60px 80px;}
+
+.pg-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.pg-headline{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;line-height:1.15;color:var(--white);margin-bottom:24px;}
+.pg-headline em{font-style:italic;color:var(--gold);}
+.pg-deck{font-size:16px;color:var(--off);line-height:1.85;max-width:640px;margin-bottom:56px;}
+
+.divider{border:none;border-top:1px solid var(--line);margin:48px 0;}
+
+.section-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--gold-border);}
+
+.bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:48px;}
+.bio-body{font-size:15px;color:var(--off);line-height:1.9;}
+.bio-body strong{color:var(--white);}
+.bio-body p{margin-bottom:18px;}
+
+.credential-list{display:flex;flex-direction:column;gap:10px;}
+.cred-item{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);padding:14px 18px;border-radius:0 4px 4px 0;}
+.cred-name{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;color:var(--gold);letter-spacing:0.08em;margin-bottom:3px;}
+.cred-desc{font-size:13px;color:var(--off);line-height:1.6;}
+
+.moat-block{background:var(--deep);border:1px solid var(--gold-border);padding:36px;margin:48px 0;position:relative;}
+.moat-block::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);}
+.moat-quote{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;color:var(--white);line-height:1.55;margin-bottom:16px;}
+.moat-attr{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);}
+
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px;}
+.tech-card{background:var(--surface);border:1px solid var(--line);padding:20px;border-radius:4px;transition:border-color 0.2s;}
+.tech-card:hover{border-color:var(--gold-border);}
+.tc-name{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:700;color:var(--gold);margin-bottom:6px;}
+.tc-desc{font-size:13px;color:var(--off);line-height:1.6;}
+
+.proof-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:48px;}
+.proof-cell{background:var(--void);padding:24px;text-align:center;}
+.pc-n{font-family:'IBM Plex Mono',monospace;font-size:32px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:6px;}
+.pc-l{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);line-height:1.5;}
+
+.cta-block{background:var(--deep);border:1px solid var(--line);padding:36px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;}
+.cta-text{font-size:15px;color:var(--off);line-height:1.7;}
+.cta-text strong{color:var(--white);}
+.btn-gold{background:var(--gold);color:var(--void);border:none;padding:14px 32px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;white-space:nowrap;}
+.btn-gold:hover{background:var(--gold-bright);}
+.btn-ghost{background:none;border:1px solid var(--line);color:var(--off);padding:14px 32px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;display:inline-block;margin-top:10px;white-space:nowrap;}
+.btn-ghost:hover{border-color:var(--gold-border);color:var(--gold);}
+
+.pg-footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.pf-copy{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--dim);}
+.pf-guard{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--gold);}
+.pf-links{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--dim);}
+.pf-links a{color:var(--dim);text-decoration:none;margin:0 6px;}
+.pf-links a:hover{color:var(--gold);}
+
+@media(max-width:640px){
+  nav{padding:16px 20px;}
+  .page{padding:100px 20px 60px;}
+  .bio-grid,.tech-grid{grid-template-columns:1fr;}
+  .proof-row{grid-template-columns:repeat(2,1fr);}
+  .cta-block{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand">transpAIrency™</a>
+  <div class="nav-links">
+    <a href="/about/" style="color:var(--gold);">About</a>
+    <a href="/about/eu-ai-act/">EU AI Act</a>
+    <a href="/about/one-pager/">One-Pager</a>
+    <a href="/app/" class="btn">Try Free</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="pg-eyebrow">About · Honest AiB™ Holdings, Inc.</div>
+  <h1 class="pg-headline">We Built the Verification<br>Layer <em>AI Has Been Missing.</em></h1>
+  <p class="pg-deck">Honest AiB™ Holdings develops technology that forces AI to show its work. Every output sourced, scored, counter-argued, and sealed with a court-ready audit trail. Not as a feature. As the architecture.</p>
+
+  <div class="proof-row">
+    <div class="proof-cell"><div class="pc-n">99.5%</div><div class="pc-l">Legal Billing<br>Accuracy</div></div>
+    <div class="proof-cell"><div class="pc-n">10/10</div><div class="pc-l">KillShot<br>Queries Passed</div></div>
+    <div class="proof-cell"><div class="pc-n">8</div><div class="pc-l">LLMs<br>Verified</div></div>
+    <div class="proof-cell"><div class="pc-n">0%</div><div class="pc-l">Black Box<br>Output</div></div>
+  </div>
+
+  <div class="section-label">The Founder</div>
+  <div class="bio-grid">
+    <div class="bio-body">
+      <p><strong>Jon Pearlstone</strong> is a former <strong>KPMG Big Four</strong> CPA auditor and lifetime entrepreneur with extensive experience in negotiation and forensic financial analysis.</p>
+      <p>He founded Honest AiB™ Holdings after recognizing that every enterprise deploying AI faces the same unresolved exposure: when the AI is wrong, the company owns it — and there is no audit trail, no sourced output, no defensible record of what the AI said or why.</p>
+      <p>transpAIrency™ and the AiBcheck™ platform are developed in collaboration with a growing network of credentialed professionals across high-risk domains — legal, medical, financial, and compliance — directly involved in the design, testing, and implementation of Pearlstone's patent-pending AiBcheck™ and hGrAiL™ verification technologies.</p>
+      <p style="color:var(--dim);font-size:13px;font-style:italic;">Investor inquiries welcome. <a href="mailto:jon@aibcheck.com" style="color:var(--gold);text-decoration:none;">jon@aibcheck.com</a></p>
+    </div>
+    <div class="credential-list">
+      <div class="cred-item">
+        <div class="cred-name">KPMG Big Four · CPA Auditor</div>
+        <div class="cred-desc">Public accounting, audit methodology, and forensic financial analysis at the highest professional standard.</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-name">CAAi™ — Certified Auditor of AI</div>
+        <div class="cred-desc">Internal certification for AI output auditing — the credential the industry does not yet have.</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-name">Patent Pending · Oct 2025</div>
+        <div class="cred-desc">AiBcheck™ verification protocol and hGrAiL™ audit architecture. Provisional filed October 2025.</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-name">EU AI Act Ready</div>
+        <div class="cred-desc">Built for Article 13 transparency from day one. Full compliance posture documented. <a href="/about/eu-ai-act/" style="color:var(--gold);text-decoration:none;">Declaration →</a></div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-name">Forensic Financial Analysis</div>
+        <div class="cred-desc">Extensive background in high-stakes negotiations and forensic review — the foundation of the AiBcheck™ methodology.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="moat-block">
+    <div class="moat-quote">"transpAIrency™ is the only AI platform that produces a court-ready, timestamped audit trail on every single response — not as a feature, but as the architecture."</div>
+    <div class="moat-attr">Competitive Moat · Cannot Be Replicated in 90 Days · Patent Pending</div>
+  </div>
+
+  <div class="section-label">The Technology</div>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="tc-name">AiBcheck™ Protocol</div>
+      <div class="tc-desc">Sources cited and numbered. Confidence scored. Gaps declared. Counter-arguments surfaced. Conclusions traceable. Patent pending.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tc-name">VGRAPH™ v5.2</div>
+      <div class="tc-desc">Proprietary 17-node domain detection engine. Identifies liability exposure and routes to correct IDK threshold before LLM call. Server-side only.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tc-name">hGrAiL™ Audit Trail</div>
+      <div class="tc-desc">SHA-256 OAT hash on every exchange. Logged to Google Sheets. Court-ready chain of custody from first query.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tc-name">TRIAD Protocol™</div>
+      <div class="tc-desc">dAItamatch · dAItaDD · dAItaSUB — verify before stating, source every addition, authorize every removal.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tc-name">PYcheck™ 5-Gate System</div>
+      <div class="tc-desc">Post-generation: Semantic Stakes · Output Match · Source Tier · IDK Enforcement · Protocol Compliance. All five or the response is flagged.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tc-name">AiBGUARD™ Safety Layer</div>
+      <div class="tc-desc">Pre-LLM emergency detection. Crisis, poison, harm-intent, IP injection — intercepted before the model sees the query.</div>
+    </div>
+  </div>
+
+  <div class="section-label">Work With Us</div>
+  <div class="cta-block">
+    <div class="cta-text">
+      <strong>Enterprise Partnerships.</strong> We are licensing the hGrAiL™ architecture and AiBcheck™ protocol to AI platform companies and enterprise operators. Anthropic, OpenAI, Google, Microsoft, and leading legal and financial technology platforms are our target partners.<br><br>
+      Licensing conversations in the <strong>$25–50M range</strong>. Investor inquiries welcome.
+    </div>
+    <div>
+      <a href="mailto:jon@aibcheck.com?subject=transpAIrency Partnership Inquiry" class="btn-gold">Contact Jon →</a>
+      <br>
+      <a href="/about/one-pager/" class="btn-ghost">View One-Pager</a>
+    </div>
+  </div>
+
+  <div class="pg-footer">
+    <div class="pf-copy">© 2026 Honest AiB Holdings, Inc. · Los Angeles, CA · Patent Pending</div>
+    <div class="pf-guard">⚠️ AIBGUARD v5.0β © / YOU VERIFY / — AiB™</div>
+    <div class="pf-links">
+      <a href="/">Home</a>
+      <a href="/about/eu-ai-act/">EU AI Act</a>
+      <a href="/about/one-pager/">One-Pager</a>
+      <a href="https://aibcheck.com/legal/privacy">Privacy</a>
+      <a href="https://aibcheck.com/legal/terms">Terms</a>
+      <a href="https://aibcheck.com/legal/ai-disclosure">AI Disclosure</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
